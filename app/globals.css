@@ -1,0 +1,135 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+:root {
+  /* تم رنگی برای فروشگاه کتاب - قهوه‌ای گرم و سفید */
+  --background: #faf8f3;
+  --foreground: #2a2a2a;
+  --card: #ffffff;
+  --card-foreground: #2a2a2a;
+  --popover: #ffffff;
+  --popover-foreground: #2a2a2a;
+  --primary: #8b5e3c;
+  --primary-foreground: #ffffff;
+  --secondary: #d4a574;
+  --secondary-foreground: #2a2a2a;
+  --muted: #e8e4db;
+  --muted-foreground: #666666;
+  --accent: #c97a5c;
+  --accent-foreground: #ffffff;
+  --destructive: #dc2626;
+  --destructive-foreground: #ffffff;
+  --border: #e8e4db;
+  --input: #ffffff;
+  --ring: #8b5e3c;
+  --chart-1: #8b5e3c;
+  --chart-2: #d4a574;
+  --chart-3: #c97a5c;
+  --chart-4: #6b4423;
+  --chart-5: #a67c52;
+  --radius: 0.625rem;
+  --sidebar: #ffffff;
+  --sidebar-foreground: #2a2a2a;
+  --sidebar-primary: #8b5e3c;
+  --sidebar-primary-foreground: #ffffff;
+  --sidebar-accent: #d4a574;
+  --sidebar-accent-foreground: #2a2a2a;
+  --sidebar-border: #e8e4db;
+  --sidebar-ring: #8b5e3c;
+}
+
+.dark {
+  --background: #1a1a1a;
+  --foreground: #f5f5f5;
+  --card: #2a2a2a;
+  --card-foreground: #f5f5f5;
+  --popover: #2a2a2a;
+  --popover-foreground: #f5f5f5;
+  --primary: #a67c52;
+  --primary-foreground: #1a1a1a;
+  --secondary: #8b5e3c;
+  --secondary-foreground: #f5f5f5;
+  --muted: #404040;
+  --muted-foreground: #999999;
+  --accent: #d9956a;
+  --accent-foreground: #1a1a1a;
+  --destructive: #ef4444;
+  --destructive-foreground: #000000;
+  --border: #404040;
+  --input: #2a2a2a;
+  --ring: #a67c52;
+  --chart-1: #a67c52;
+  --chart-2: #8b5e3c;
+  --chart-3: #d9956a;
+  --chart-4: #6b4423;
+  --chart-5: #c97a5c;
+  --sidebar: #2a2a2a;
+  --sidebar-foreground: #f5f5f5;
+  --sidebar-primary: #a67c52;
+  --sidebar-primary-foreground: #f5f5f5;
+  --sidebar-accent: #8b5e3c;
+  --sidebar-accent-foreground: #f5f5f5;
+  --sidebar-border: #404040;
+  --sidebar-ring: #a67c52;
+}
+
+@theme inline {
+  --font-sans: "Vazirmatn", "Geist", sans-serif;
+  --font-mono: "Geist Mono", monospace;
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
+/* استایل‌های دارای جهت راست‌چپ برای فارسی */
+html {
+  direction: rtl;
+}
+
+.ltr {
+  direction: ltr;
+}
