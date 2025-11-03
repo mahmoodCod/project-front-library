@@ -4,7 +4,7 @@ import Image from "next/image"
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Input } from "@/components/ui/input"
-import { Textarea } from "@/components/ui/textarea"
+// import { Textarea } from "@/components/ui/textarea"
 import { Button } from "@/components/ui/button"
 import { useState } from "react"
 import Link from "next/link"
@@ -19,7 +19,6 @@ export default function AuthPage() {
     username: "",
     password: "",
     phone: "",
-    address: "",
   })
   const [registerErrors, setRegisterErrors] = useState<{
     firstName?: string
@@ -27,7 +26,6 @@ export default function AuthPage() {
     username?: string
     password?: string
     phone?: string
-    address?: string
   }>({})
 
   function validateLogin(): boolean {
@@ -47,7 +45,6 @@ export default function AuthPage() {
       errs.password = "رمز عبور باید حداقل ۸ کاراکتر باشد"
     const phoneOk = /^0?9\d{9}$/.test(registerData.phone)
     if (!phoneOk) errs.phone = "شماره موبایل را به شکل صحیح وارد کنید (مثال: 09xxxxxxxxx)"
-    if (!registerData.address.trim()) errs.address = "آدرس را وارد کنید"
     setRegisterErrors(errs)
     return Object.keys(errs).length === 0
   }
@@ -67,7 +64,10 @@ export default function AuthPage() {
 
       {/* Content */}
       <div className="relative z-10 min-h-screen flex items-center justify-center p-4" dir="rtl">
-        <div className="w-full max-w-2xl">
+        <Link href="/" className="absolute top-3 right-3 md:top-6 md:right-6 text-xs md:text-sm text-white/85 hover:text-white bg-white/10 hover:bg-white/20 px-3 py-1 rounded-full">
+          ← بازگشت به صفحه اصلی
+        </Link>
+        <div className="w-full max-w-md md:max-w-lg">
           <Card className="shadow-2xl border-border/60 backdrop-blur supports-[backdrop-filter]:bg-black/40 text-white text-right">
             <CardHeader className="text-center space-y-1">
               <CardTitle className="text-3xl text-white">به مکتب شریف خوش آمدید</CardTitle>
@@ -92,6 +92,7 @@ export default function AuthPage() {
                       setLoginErrors(errs)
                       if (Object.keys(errs).length) return
                     }}
+                    noValidate
                   >
                     <div className="relative space-y-1 pb-1">
                       <label className="text-sm text-white" htmlFor="login-username">
@@ -111,7 +112,6 @@ export default function AuthPage() {
                           setLoginErrors((p) => ({ ...p, username: v.trim() ? undefined : "نام کاربری الزامی است" }))
                         }}
                         className="text-right"
-                        required
                       />
                       {loginErrors?.username ? (
                         <p className="absolute top-full right-0 mt-0 text-[10px] leading-none text-red-400">{loginErrors.username}</p>
@@ -136,7 +136,6 @@ export default function AuthPage() {
                           setLoginErrors((p) => ({ ...p, password: v.trim() ? undefined : "رمز عبور الزامی است" }))
                         }}
                         className="text-right"
-                        required
                       />
                       {loginErrors?.password ? (
                         <p className="absolute top-full right-0 mt-0 text-[10px] leading-none text-red-400">{loginErrors.password}</p>
@@ -166,32 +165,11 @@ export default function AuthPage() {
                       if (!registerData.username.trim()) errs.username = "نام کاربری الزامی است"
                       if (!registerData.password || registerData.password.length < 8) errs.password = "رمز عبور باید حداقل ۸ کاراکتر باشد"
                       if (!/^0?9\d{9}$/.test(registerData.phone)) errs.phone = "شماره موبایل را به شکل صحیح وارد کنید (مثال: 09xxxxxxxxx)"
-                      if (!registerData.address.trim()) errs.address = "آدرس را وارد کنید"
                       setRegisterErrors(errs)
                       if (Object.keys(errs).length) return
                     }}
+                    noValidate
                   >
-                    <div className="relative space-y-1 pb-1">
-                      <label className="text-sm text-white" htmlFor="firstName">نام</label>
-                      <Input
-                        id="firstName"
-                        placeholder="علی"
-                        value={registerData.firstName}
-                        onChange={(e) => {
-                          const v = e.target.value
-                          setRegisterData({ ...registerData, firstName: v })
-                          setRegisterErrors((p) => ({ ...p, firstName: v.trim() ? undefined : "نام را وارد کنید" }))
-                        }}
-                        className="text-right"
-                        required
-                        onBlur={() => {
-                          setRegisterErrors((p) => ({ ...p, firstName: registerData.firstName.trim() ? undefined : "نام را وارد کنید" }))
-                        }}
-                      />
-                      {registerErrors.firstName ? (
-                        <p className="absolute top-full right-0 mt-0 text-[10px] leading-none text-red-400">{registerErrors.firstName}</p>
-                      ) : null}
-                    </div>
                     <div className="relative space-y-1 pb-1">
                       <label className="text-sm text-white" htmlFor="lastName">نام خانوادگی</label>
                       <Input
@@ -211,6 +189,27 @@ export default function AuthPage() {
                       />
                       {registerErrors.lastName ? (
                         <p className="absolute top-full right-0 mt-0 text-[10px] leading-none text-red-400">{registerErrors.lastName}</p>
+                      ) : null}
+                    </div>
+                    <div className="relative space-y-1 pb-1">
+                      <label className="text-sm text-white" htmlFor="firstName">نام</label>
+                      <Input
+                        id="firstName"
+                        placeholder="علی"
+                        value={registerData.firstName}
+                        onChange={(e) => {
+                          const v = e.target.value
+                          setRegisterData({ ...registerData, firstName: v })
+                          setRegisterErrors((p) => ({ ...p, firstName: v.trim() ? undefined : "نام را وارد کنید" }))
+                        }}
+                        className="text-right"
+                        required
+                        onBlur={() => {
+                          setRegisterErrors((p) => ({ ...p, firstName: registerData.firstName.trim() ? undefined : "نام را وارد کنید" }))
+                        }}
+                      />
+                      {registerErrors.firstName ? (
+                        <p className="absolute top-full right-0 mt-0 text-[10px] leading-none text-red-400">{registerErrors.firstName}</p>
                       ) : null}
                     </div>
                     <div className="relative space-y-1 pb-1 md:col-span-2">
@@ -281,28 +280,7 @@ export default function AuthPage() {
                         <p className="absolute top-full right-0 mt-0 text-[10px] leading-none text-red-400">{registerErrors.phone}</p>
                       ) : null}
                     </div>
-                    <div className="relative space-y-1 pb-1 md:col-span-2">
-                      <label className="text-sm text-white" htmlFor="address">آدرس</label>
-                      <Textarea
-                        id="address"
-                        placeholder="آدرس کامل"
-                        value={registerData.address}
-                        onChange={(e) => {
-                          const v = e.target.value
-                          setRegisterData({ ...registerData, address: v })
-                          setRegisterErrors((p) => ({ ...p, address: v.trim() ? undefined : "آدرس را وارد کنید" }))
-                        }}
-                        rows={3}
-                        className="text-right"
-                        required
-                        onBlur={() => {
-                          setRegisterErrors((p) => ({ ...p, address: registerData.address.trim() ? undefined : "آدرس را وارد کنید" }))
-                        }}
-                      />
-                      {registerErrors.address ? (
-                        <p className="absolute top-full right-0 mt-0 text-[10px] leading-none text-red-400">{registerErrors.address}</p>
-                      ) : null}
-                    </div>
+                    
                     <div className="md:col-span-2">
                       <Button type="submit" className="w-full">ثبت‌نام</Button>
                     </div>
