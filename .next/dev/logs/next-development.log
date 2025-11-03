@@ -72,3 +72,78 @@ Read more: https://nextjs.org/docs/app/api-reference/components/image#loading
 Read more: https://nextjs.org/docs/app/api-reference/components/image#loading
 [01:47:15.796] Server  LOG      ✓ Compiled in 2.3s
 [01:47:47.191] Server  LOG      ✓ Compiled in 2.4s
+[01:57:54.586] Server  LOG      ✓ Compiled in 2.4s
+[01:57:56.608] Server  LOG      ✓ Compiled in 120ms
+[01:58:01.511] Server  LOG      ✓ Compiled in 413ms
+[01:58:06.073] Server  LOG      ✓ Compiled in 423ms
+[01:58:11.546] Server  LOG      ✓ Compiled in 89ms
+[01:58:14.846] Server  LOG      ✓ Compiled in 87ms
+[01:58:18.931] Server  LOG      ✓ Compiled in 101ms
+[01:59:18.534] Server  LOG      ✓ Compiled in 1659ms
+[02:00:04.414] Server  LOG      ✓ Compiled in 1270ms
+[02:01:09.158] Server  LOG      ✓ Compiled in 1298ms
+[02:02:08.147] Server  LOG      ✓ Compiled in 736ms
+[02:03:38.710] Server  LOG      ✓ Compiled in 924ms
+[02:05:34.394] Server  LOG      ✓ Compiled in 1148ms
+[02:08:15.645] Server  LOG      ✓ Compiled in 1684ms
+[02:09:52.916] Server  LOG      ✓ Compiled in 864ms
+[02:12:01.456] Server  LOG      ✓ Compiled in 727ms
+[02:12:18.047] Server  LOG      ✓ Compiled in 203ms
+[02:13:10.483] Server  LOG      ✓ Compiled in 2.7s
+[02:14:49.267] Server  LOG      ✓ Compiled in 2.4s
+[02:16:27.463] Server  LOG      ✓ Compiled in 2.7s
+[02:16:41.810] Server  LOG      ✓ Compiled in 394ms
+[02:17:41.911] Server  LOG      ✓ Compiled in 1110ms
+[02:18:04.146] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[02:18:04.307] Browser WARN    Image with src "/book-cover-1.png" was detected as the Largest Contentful Paint (LCP). Please add the `loading="eager"` property if this image is above the fold.
+Read more: https://nextjs.org/docs/app/api-reference/components/image#loading
+[02:19:33.914] Server  LOG      ✓ Compiled in 3.3s
+[02:19:39.075] Server  ERROR    ⨯ Error: Event handlers cannot be passed to Client Component props.
+  <form className=... onSubmit={function onSubmit} children=...>
+                               ^^^^^^^^^^^^^^^^^^^
+If you need interactivity, consider converting part of this to a Client Component.
+[02:19:41.183] Server  ERROR    ⨯ Error: Event handlers cannot be passed to Client Component props.
+  <form className=... onSubmit={function onSubmit} children=...>
+                               ^^^^^^^^^^^^^^^^^^^
+If you need interactivity, consider converting part of this to a Client Component.
+[02:19:45.670] Server  ERROR    ⨯ Error: Event handlers cannot be passed to Client Component props.
+  <form className=... onSubmit={function onSubmit} children=...>
+                               ^^^^^^^^^^^^^^^^^^^
+If you need interactivity, consider converting part of this to a Client Component.
+[02:19:46.923] Server  ERROR    ⨯ Error: Event handlers cannot be passed to Client Component props.
+  <form className=... onSubmit={function onSubmit} children=...>
+                               ^^^^^^^^^^^^^^^^^^^
+If you need interactivity, consider converting part of this to a Client Component.
+[02:19:47.456] Server  ERROR    ⨯ Error: Event handlers cannot be passed to Client Component props.
+  <form className=... onSubmit={function onSubmit} children=...>
+                               ^^^^^^^^^^^^^^^^^^^
+If you need interactivity, consider converting part of this to a Client Component.
+[02:19:47.873] Server  ERROR    ⨯ Error: Event handlers cannot be passed to Client Component props.
+  <form className=... onSubmit={function onSubmit} children=...>
+                               ^^^^^^^^^^^^^^^^^^^
+If you need interactivity, consider converting part of this to a Client Component.
+[02:19:48.254] Server  ERROR    ⨯ Error: Event handlers cannot be passed to Client Component props.
+  <form className=... onSubmit={function onSubmit} children=...>
+                               ^^^^^^^^^^^^^^^^^^^
+If you need interactivity, consider converting part of this to a Client Component.
+[02:19:49.021] Browser ERROR   uncaughtError: Error: Event handlers cannot be passed to Client Component props.
+  <form className=... onSubmit={function onSubmit} children=...>
+                               ^^^^^^^^^^^^^^^^^^^
+If you need interactivity, consider converting part of this to a Client Component.
+[02:21:27.627] Server  LOG      ✓ Compiled in 4.6s
+[02:21:32.905] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[02:21:36.095] Browser WARN    Image with src "/book-cover-1.png" was detected as the Largest Contentful Paint (LCP). Please add the `loading="eager"` property if this image is above the fold.
+Read more: https://nextjs.org/docs/app/api-reference/components/image#loading
+[02:22:17.999] Server  LOG      ✓ Compiled in 2.6s
+[02:23:12.568] Server  LOG      ✓ Compiled in 1650ms
+[02:24:04.904] Server  LOG      ✓ Compiled in 1373ms
+[02:25:22.795] Server  LOG      ✓ Compiled in 1609ms
+[02:26:07.284] Server  LOG      ✓ Compiled in 1130ms
+[02:27:23.920] Server  LOG      ✓ Compiled in 1954ms
+[02:28:56.737] Server  LOG      ✓ Compiled in 1520ms
+[02:29:39.840] Server  LOG      ✓ Compiled in 865ms
+[02:30:05.925] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[02:30:05.926] Browser WARN    Image with src "/book-cover-1.png" was detected as the Largest Contentful Paint (LCP). Please add the `loading="eager"` property if this image is above the fold.
+Read more: https://nextjs.org/docs/app/api-reference/components/image#loading
+[02:31:46.238] Server  LOG      ✓ Compiled in 1838ms
+[02:33:38.303] Server  LOG      ✓ Compiled in 913ms

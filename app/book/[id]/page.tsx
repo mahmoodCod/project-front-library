@@ -1,7 +1,7 @@
 "use client"
 
 import Image from "next/image"
-import { useState, use as usePromise } from "react"
+import { useState, use as usePromise, useEffect } from "react"
 import { Star, ShoppingCart, Heart, Share2, Check } from "lucide-react"
 import { Header } from "@/components/header"
 import { Button } from "@/components/ui/button"
@@ -40,6 +40,15 @@ export default function BookPage({ params }: { params: Promise<{ id: string }> }
   const [isFavorite, setIsFavorite] = useState(false)
   const [isAdded, setIsAdded] = useState(false)
   const { addItem } = useCart()
+  const [isZoomOpen, setIsZoomOpen] = useState(false)
+
+  useEffect(() => {
+    function onKeyDown(e: KeyboardEvent) {
+      if (e.key === "Escape") setIsZoomOpen(false)
+    }
+    window.addEventListener("keydown", onKeyDown)
+    return () => window.removeEventListener("keydown", onKeyDown)
+  }, [])
 
   if (!book) {
     return (
@@ -94,10 +103,14 @@ export default function BookPage({ params }: { params: Promise<{ id: string }> }
         <div className="grid md:grid-cols-2 gap-8">
           {/* تصویر کتاب */}
           <div className="flex flex-col gap-4">
-            <div className="relative bg-muted rounded-lg overflow-hidden h-96 md:h-full">
+            <div
+              className="relative bg-muted rounded-lg overflow-hidden h-56 md:h-80 cursor-zoom-in"
+              onClick={() => setIsZoomOpen(true)}
+              title="برای بزرگ‌نمایی کلیک کنید"
+            >
               <Image src={book.image || "/placeholder.svg"} alt={book.title} fill className="object-cover" />
               {discount > 0 && (
-                <div className="absolute top-4 right-4 bg-accent text-accent-foreground px-4 py-2 rounded-lg font-bold text-lg">
+                <div className="absolute top-2 right-2 md:top-4 md:right-4 bg-accent text-accent-foreground px-3 py-1 md:px-4 md:py-2 rounded-lg font-bold text-sm md:text-lg">
                   {discount}% تخفیف
                 </div>
               )}
@@ -108,8 +121,8 @@ export default function BookPage({ params }: { params: Promise<{ id: string }> }
           <div className="space-y-6">
             {/* عنوان و نویسنده */}
             <div>
-              <h1 className="text-3xl md:text-4xl font-bold text-foreground mb-2">{book.title}</h1>
-              <p className="text-lg text-muted-foreground mb-4">نویسنده: {book.author}</p>
+              <h1 className="text-2xl md:text-4xl font-bold text-foreground mb-2">{book.title}</h1>
+              <p className="text-base md:text-lg text-muted-foreground mb-4">نویسنده: {book.author}</p>
 
               {/* امتیاز */}
               <div className="flex items-center gap-3">
@@ -130,18 +143,16 @@ export default function BookPage({ params }: { params: Promise<{ id: string }> }
             </div>
 
             {/* قیمت */}
-            <div className="bg-muted p-6 rounded-lg">
-              <div className="flex items-center gap-4">
-                <div>
-                  <p className="text-sm text-muted-foreground mb-2">قیمت:</p>
-                  <div className="flex items-center gap-3">
-                    <span className="text-3xl font-bold text-primary">
-                      {book.discountedPrice.toLocaleString("fa-IR")}
-                    </span>
-                    <span className="text-lg text-muted-foreground line-through">
-                      {book.price.toLocaleString("fa-IR")}
-                    </span>
-                  </div>
+            <div className="bg-muted p-4 md:p-6 rounded-lg">
+              <div className="flex items-center justify-between">
+                <p className="text-xs md:text-sm text-muted-foreground">قیمت:</p>
+                <div className="flex items-center gap-3">
+                  <span className="text-2xl md:text-3xl font-bold text-primary">
+                    {book.discountedPrice.toLocaleString("fa-IR")}
+                  </span>
+                  <span className="text-base md:text-lg text-muted-foreground line-through">
+                    {book.price.toLocaleString("fa-IR")}
+                  </span>
                 </div>
               </div>
             </div>
@@ -169,8 +180,8 @@ export default function BookPage({ params }: { params: Promise<{ id: string }> }
 
               {/* دکمه‌ها */}
               <div className="flex gap-3">
-                <Button onClick={handleAddToCart} className="flex-1 py-6 text-base">
-                  <ShoppingCart className="w-5 h-5 ms-2" />
+                <Button onClick={handleAddToCart} className="flex-1 py-4 md:py-6 text-sm md:text-base">
+                  <ShoppingCart className="w-4 h-4 md:w-5 md:h-5 ms-2" />
                   {isAdded ? "اضافه شد ✓" : "اضافه به سبد"}
                 </Button>
                 <Button variant="outline" size="lg" onClick={() => setIsFavorite(!isFavorite)} className="px-4">
@@ -181,114 +192,131 @@ export default function BookPage({ params }: { params: Promise<{ id: string }> }
                 </Button>
               </div>
 
-              {/* وضعیت موجودی */}
-              <div className="flex items-center gap-2 text-sm">
-                {book.inStock ? (
-                  <>
-                    <Check className="w-4 h-4 text-green-600" />
-                    <span className="text-green-600 font-medium">{book.stockCount} عدد در انبار</span>
-                  </>
-                ) : (
-                  <span className="text-destructive font-medium">ناموجود</span>
-                )}
+              {/* وضعیت موجودی + ارسال رایگان در یک ردیف مقابل هم */}
+              <div className="flex items-center justify-between text-sm mt-2">
+                <div className="flex items-center gap-2">
+                  {book.inStock ? (
+                    <>
+                      <Check className="w-4 h-4 text-green-600" />
+                      <span className="text-green-600 font-medium">{book.stockCount} عدد در انبار</span>
+                    </>
+                  ) : (
+                    <span className="text-destructive font-medium">ناموجود</span>
+                  )}
+                </div>
+                <div className="inline-flex items-center gap-2 bg-primary/5 text-primary border border-primary/10 px-3 py-1 rounded-md">
+                  <span className="text-xs font-semibold">✓ ارسال رایگان</span>
+                  <span className="text-[11px] text-primary/80">برای خرید بالای ۵۰۰ هزار تومان</span>
+                </div>
               </div>
             </div>
 
-            {/* ویژگی‌ها */}
+            {/* ویژگی‌ها و اطلاعات کتاب */}
             <div className="pt-4 border-t border-border">
-              <h3 className="font-semibold mb-4">ویژگی‌های کتاب:</h3>
-              <ul className="space-y-2">
-                {book.features.map((feature, idx) => (
-                  <li key={idx} className="flex items-start gap-3 text-sm">
-                    <span className="text-primary mt-1">✓</span>
-                    <span>{feature}</span>
-                  </li>
-                ))}
-              </ul>
+              <div className="bg-card border border-border rounded-lg p-4 md:p-6">
+                <div className="grid grid-cols-2 gap-4 md:gap-6">
+                  {/* ویژگی‌های کتاب */}
+                  <div>
+                    <h3 className="font-semibold mb-3 md:mb-4 text-sm md:text-base">ویژگی‌های کتاب:</h3>
+                    <ul className="space-y-2">
+                      {book.features.map((feature, idx) => (
+                        <li key={idx} className="flex items-start gap-2 text-xs md:text-sm">
+                          <span className="text-primary mt-0.5">✓</span>
+                          <span className="leading-relaxed">{feature}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+
+                  {/* اطلاعات کتاب */}
+                  <div>
+                    <h3 className="font-semibold mb-3 md:mb-4 text-sm md:text-base">اطلاعات کتاب</h3>
+                    <ul className="space-y-2 md:space-y-3 text-xs md:text-sm">
+                      <li className="flex justify-between items-center gap-2">
+                        <span className="text-muted-foreground whitespace-nowrap">انتشارات:</span>
+                        <span className="text-right">{book.publisher}</span>
+                      </li>
+                      <li className="flex justify-between items-center gap-2">
+                        <span className="text-muted-foreground whitespace-nowrap">سال:</span>
+                        <span>{book.publishYear}</span>
+                      </li>
+                      <li className="flex justify-between items-center gap-2">
+                        <span className="text-muted-foreground whitespace-nowrap">تعداد صفحات:</span>
+                        <span>{book.pages}</span>
+                      </li>
+                      <li className="flex justify-between items-center gap-2">
+                        <span className="text-muted-foreground whitespace-nowrap">زبان:</span>
+                        <span>{book.language}</span>
+                      </li>
+                      <li className="flex justify-between items-center gap-2">
+                        <span className="text-muted-foreground whitespace-nowrap">ISBN:</span>
+                        <span className="text-[10px] md:text-xs text-right break-all">{book.isbn}</span>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </div>
 
         {/* اطلاعات تفصیلی کتاب */}
-        <div className="mt-12 grid md:grid-cols-3 gap-6">
-          <div className="md:col-span-2 space-y-6">
-            {/* توضیح کتاب */}
-            <div className="bg-card border border-border p-6 rounded-lg">
-              <h2 className="text-2xl font-bold mb-4">درباره این کتاب</h2>
-              <p className="text-muted-foreground leading-relaxed">{book.description}</p>
-            </div>
-
-            {/* نقد و بررسی */}
-            <div className="bg-card border border-border p-6 rounded-lg">
-              <h2 className="text-2xl font-bold mb-6">نقد و بررسی</h2>
-
-              {/* نمونه نظرات */}
-              <div className="space-y-4">
-                {[1, 2].map((idx) => (
-                  <div key={idx} className="border-b border-border pb-4 last:border-0">
-                    <div className="flex items-center justify-between mb-2">
-                      <div>
-                        <p className="font-semibold">یک کاربر راضی</p>
-                        <div className="flex gap-1 mt-1">
-                          {[...Array(5)].map((_, i) => (
-                            <Star key={i} className="w-4 h-4 fill-yellow-400 text-yellow-400" />
-                          ))}
-                        </div>
-                      </div>
-                      <span className="text-sm text-muted-foreground">دیروز</span>
-                    </div>
-                    <p className="text-sm text-muted-foreground">
-                      این کتاب واقعاً فوق‌العاده است. نویسندگی عمیق و احساسی است.
-                    </p>
-                  </div>
-                ))}
-              </div>
-            </div>
+        <div className="mt-12 space-y-6">
+          {/* توضیح کتاب */}
+          <div className="bg-card border border-border p-4 md:p-6 rounded-lg">
+            <h2 className="text-xl md:text-2xl font-bold mb-4">درباره این کتاب</h2>
+            <p className="text-sm md:text-base text-muted-foreground leading-relaxed">{book.description}</p>
           </div>
 
-          {/* پنل جانبی */}
-          <div className="space-y-4">
-            {/* اطلاعات انتشار */}
-            <div className="bg-card border border-border p-6 rounded-lg">
-              <h3 className="font-semibold mb-4">اطلاعات کتاب</h3>
-              <ul className="space-y-3 text-sm">
-                <li className="flex justify-between">
-                  <span className="text-muted-foreground">انتشارات:</span>
-                  <span>{book.publisher}</span>
-                </li>
-                <li className="flex justify-between">
-                  <span className="text-muted-foreground">سال:</span>
-                  <span>{book.publishYear}</span>
-                </li>
-                <li className="flex justify-between">
-                  <span className="text-muted-foreground">تعداد صفحات:</span>
-                  <span>{book.pages}</span>
-                </li>
-                <li className="flex justify-between">
-                  <span className="text-muted-foreground">زبان:</span>
-                  <span>{book.language}</span>
-                </li>
-                <li className="flex justify-between">
-                  <span className="text-muted-foreground">ISBN:</span>
-                  <span className="text-xs">{book.isbn}</span>
-                </li>
-              </ul>
-            </div>
+          {/* نقد و بررسی */}
+          <div className="bg-card border border-border p-4 md:p-6 rounded-lg">
+            <h2 className="text-xl md:text-2xl font-bold mb-6">نقد و بررسی</h2>
 
-            {/* ارسال رایگان */}
-            <div className="bg-primary/10 border border-primary/20 p-6 rounded-lg">
-              <p className="text-sm text-primary font-semibold">✓ ارسال رایگان برای خرید بالای ۵۰۰ هزار تومان</p>
+            {/* نمونه نظرات */}
+            <div className="space-y-4">
+              {[1, 2].map((idx) => (
+                <div key={idx} className="border-b border-border pb-4 last:border-0">
+                  <div className="flex items-center justify-between mb-2">
+                    <div>
+                      <p className="font-semibold">یک کاربر راضی</p>
+                      <div className="flex gap-1 mt-1">
+                        {[...Array(5)].map((_, i) => (
+                          <Star key={i} className="w-4 h-4 fill-yellow-400 text-yellow-400" />
+                        ))}
+                      </div>
+                    </div>
+                    <span className="text-sm text-muted-foreground">دیروز</span>
+                  </div>
+                  <p className="text-sm text-muted-foreground">
+                    این کتاب واقعاً فوق‌العاده است. نویسندگی عمیق و احساسی است.
+                  </p>
+                </div>
+              ))}
             </div>
           </div>
         </div>
       </div>
 
-      {/* فوتر */}
-      <footer className="bg-card border-t border-border mt-12">
-        <div className="max-w-7xl mx-auto px-4 py-8 text-center text-sm text-muted-foreground">
-          <p>© ۱۴۰۳ کتاب‌خانه. تمام حقوق محفوظ است.</p>
+      {/* لایت‌باکس تصویر */}
+      {isZoomOpen && (
+        <div
+          className="fixed inset-0 z-[60] bg-black/80 backdrop-blur-sm flex items-center justify-center p-4"
+          onClick={() => setIsZoomOpen(false)}
+        >
+          <div className="relative max-w-full max-h-full" onClick={(e) => e.stopPropagation()}>
+            <button
+              onClick={() => setIsZoomOpen(false)}
+              aria-label="بستن"
+              className="absolute -top-3 -left-3 md:top-0 md:left-0 translate-y-[-100%] md:translate-y-0 md:-translate-x-full rounded-full bg-white/90 text.black w-8 h-8 flex items-center justify-center shadow"
+            >
+              ×
+            </button>
+            <div className="relative w-[90vw] h-[80vh] md:w-[70vw] md:h-[80vh]">
+              <Image src={book.image || "/placeholder.svg"} alt={book.title} fill className="object-contain" />
+            </div>
+          </div>
         </div>
-      </footer>
+      )}
     </main>
   )
 }

@@ -135,10 +135,10 @@ export function Header() {
                 🔍
               </button>
             </form>
-            <Button variant="outline" className="w-full justify-center bg-transparent">
+            <Link href="/auth" className="w-full flex items-center justify-center gap-2 border border-border rounded-lg py-2 bg-transparent hover:bg-muted">
               <span className="text-lg me-2">👤</span>
-              ورود
-            </Button>
+              <span>ورود</span>
+            </Link>
           </div>
         )}
       </div>

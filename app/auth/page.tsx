@@ -64,7 +64,7 @@ export default function AuthPage() {
 
       {/* Content */}
       <div className="relative z-10 min-h-screen flex items-center justify-center p-4" dir="rtl">
-        <Link href="/" className="absolute top-3 right-3 md:top-6 md:right-6 text-xs md:text-sm text-white/85 hover:text-white bg-white/10 hover:bg-white/20 px-3 py-1 rounded-full">
+        <Link href="/" className="absolute top-3 right-3 md:top-6 md:right-6 text-xs md:text-sm text-white/85 hover:text-white bg-white/10 hover:bg.white/20 px-3 py-1 rounded-full z-50">
           ← بازگشت به صفحه اصلی
         </Link>
         <div className="w-full max-w-md md:max-w-lg">

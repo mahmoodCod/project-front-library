@@ -3,6 +3,7 @@ import type { Metadata } from "next"
 import { Vazirmatn } from "next/font/google"
 import "./globals.css"
 import { CartProvider } from "@/components/cart-provider"
+import { Footer } from "@/components/footer"
 
 const vazirmatn = Vazirmatn({ subsets: ["arabic", "latin"] })
 
@@ -19,9 +20,14 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="fa" dir="rtl">
-      <body className={`${vazirmatn.className} font-sans antialiased`}>
+      <body className={`${vazirmatn.className} font-sans antialiased min-h-screen`}> 
         <CartProvider>
-          {children}
+          <div className="min-h-screen flex flex-col">
+            <div className="flex-1">
+              {children}
+            </div>
+            <Footer />
+          </div>
         </CartProvider>
       </body>
     </html>

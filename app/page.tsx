@@ -196,47 +196,6 @@ export default function Home() {
         )}
       </section>
 
-      {/* فوتر */}
-      <footer className="bg-card border-t border-border mt-12">
-        <div className="max-w-7xl mx-auto px-4 py-12">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8 mb-8">
-            <div>
-              <h3 className="font-semibold mb-3">مکتب شریف</h3>
-              <p className="text-sm text-muted-foreground leading-relaxed">
-                فروشگاه آنلاین کتاب با مجموعه‌ای از بهترین آثار ادبی، تاریخی و علمی.
-              </p>
-            </div>
-            <div>
-              <h3 className="font-semibold mb-3">دسته‌بندی‌ها</h3>
-              <ul className="space-y-2 text.sm text-muted-foreground">
-                <li>داستان و رمان</li>
-                <li>تاریخ و تمدن</li>
-                <li>علمی و تحقیقاتی</li>
-                <li>خودیاری و موفقیت</li>
-                <li>کودکان و نوجوانان</li>
-              </ul>
-            </div>
-            <div>
-              <h3 className="font-semibold mb-3">راهنما</h3>
-              <ul className="space-y-2 text-sm text-muted-foreground">
-                <li>سوالات متداول</li>
-                <li>قوانین و مقررات</li>
-                <li>حریم خصوصی</li>
-              </ul>
-            </div>
-            <div>
-              <h3 className="font-semibold mb-3">ارتباط با ما</h3>
-              <ul className="space-y-2 text-sm text-muted-foreground">
-                <li>ایمیل: support@maktebsharif.ir</li>
-                <li>تلفن: 021-12345678</li>
-                <li>آدرس: تهران، خیابان مثال، پلاک ۱۲۳</li>
-              </ul>
-            </div>
-          </div>
-          <div className="text-center text-xs text-muted-foreground">© {new Date().getFullYear()} مکتب شریف</div>
-        </div>
-      </footer>
-
       <style jsx>{`
         .hide-scrollbar {
           -ms-overflow-style: none;
