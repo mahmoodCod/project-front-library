@@ -1,18 +1,28 @@
 "use client"
 
 import { useState } from "react"
+import { useRouter } from "next/navigation"
 import Link from "next/link"
 import { Button } from "@/components/ui/button"
 
 export function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
   const [cartCount] = useState(3)
+  const [query, setQuery] = useState("")
+  const router = useRouter()
+
+  function submitSearch(e?: React.FormEvent) {
+    if (e) e.preventDefault()
+    const q = query.trim()
+    if (!q) return
+    router.push(`/search?q=${encodeURIComponent(q)}`)
+  }
 
   return (
     <header className="sticky top-0 z-50 bg-white border-b border-border shadow-sm">
       <div className="max-w-7xl mx-auto px-4 py-4">
         {/* دسکتاپ هدر */}
-        <div className="hidden md:flex md:flex-row-reverse items-center justify-between gap-8">
+        <div className="hidden md:flex items-center justify-between gap-8">
           {/* لوگو */}
           <Link href="/" className="shrink-0">
             <div className="flex items-center gap-2">
@@ -25,14 +35,19 @@ export function Header() {
 
           {/* سرچ */}
           <div className="flex-1 max-w-md">
-            <div className="relative">
+            <form className="relative" onSubmit={submitSearch} role="search" aria-label="جستجوی کتاب">
               <input
-                type="text"
+                type="search"
                 placeholder="جستجوی کتاب..."
-                className="w-full px-4 py-2 border border-border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary bg-background"
+                aria-label="جستجوی کتاب"
+                value={query}
+                onChange={(e) => setQuery(e.target.value)}
+                className="w-full pr-12 pl-4 py-2 border border-border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary bg-background text-right"
               />
-              <span className="absolute right-3 top-2.5 text-muted-foreground">🔍</span>
-            </div>
+              <button type="submit" className="absolute inset-y-0 right-2 my-auto flex items-center text-muted-foreground hover:text-foreground">
+                🔍
+              </button>
+            </form>
           </div>
 
           {/* بخش راست - ورود و سبد خرید */}
@@ -41,7 +56,7 @@ export function Header() {
               <span>👤</span>
               <span>ورود</span>
             </Link>
-            <Button variant="ghost" className="relative">
+            <Button variant="ghost" className="relative px-3 py-2 rounded-lg hover:bg-muted">
               <span>🛒</span>
               {cartCount > 0 && (
                 <span className="absolute -top-2 -right-2 bg-accent text-accent-foreground rounded-full w-5 h-5 flex items-center justify-center text-xs font-bold">
@@ -79,14 +94,19 @@ export function Header() {
         {/* منوی موبایل */}
         {isMenuOpen && (
           <div className="md:hidden mt-4 space-y-3 border-t border-border pt-4">
-            <div className="relative">
+            <form className="relative" onSubmit={submitSearch} role="search" aria-label="جستجوی کتاب">
               <input
-                type="text"
+                type="search"
                 placeholder="جستجوی کتاب..."
-                className="w-full px-3 py-2 border border-border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary bg-background text-sm"
+                aria-label="جستجوی کتاب"
+                value={query}
+                onChange={(e) => setQuery(e.target.value)}
+                className="w-full pr-10 pl-3 py-2 border border-border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary bg-background text-sm text-right"
               />
-              <span className="absolute right-2 top-2 text-sm text-muted-foreground">🔍</span>
-            </div>
+              <button type="submit" className="absolute inset-y-0 right-2 my-auto flex items-center text-sm text-muted-foreground hover:text-foreground">
+                🔍
+              </button>
+            </form>
             <Button variant="outline" className="w-full justify-center bg-transparent">
               <span className="text-lg me-2">👤</span>
               ورود

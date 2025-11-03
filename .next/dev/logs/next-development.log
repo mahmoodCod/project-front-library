@@ -6,3 +6,15 @@ Read more: https://nextjs.org/docs/app/api-reference/components/image#loading
 [00:01:58.988] Server  LOG      ✓ Compiled in 1005ms
 [00:05:01.045] Server  LOG      ✓ Compiled in 2.8s
 [00:05:14.046] Server  LOG      ✓ Compiled in 808ms
+[00:07:23.790] Server  LOG      ✓ Compiled in 4.7s
+[00:10:07.986] Server  LOG      ✓ Compiled in 5.1s
+[00:10:25.494] Server  LOG      ○ Compiling /_not-found/page ...
+[00:10:31.736] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:10:35.630] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:10:40.454] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:10:40.587] Browser WARN    Image with src "/featured-books-collection.jpg" was detected as the Largest Contentful Paint (LCP). Please add the `loading="eager"` property if this image is above the fold.
+Read more: https://nextjs.org/docs/app/api-reference/components/image#loading
+[00:10:47.240] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:10:49.379] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:11:46.474] Server  LOG      ✓ Compiled in 7.4s
+[00:14:03.907] Server  LOG      ✓ Compiled in 5.4s
