@@ -5,6 +5,7 @@ import { useState, use as usePromise } from "react"
 import { Star, ShoppingCart, Heart, Share2, Check } from "lucide-react"
 import { Header } from "@/components/header"
 import { Button } from "@/components/ui/button"
+import { useCart } from "@/components/cart-provider"
 
 // نمونه داده برای کتاب
 const books = {
@@ -38,6 +39,7 @@ export default function BookPage({ params }: { params: Promise<{ id: string }> }
   const [quantity, setQuantity] = useState(1)
   const [isFavorite, setIsFavorite] = useState(false)
   const [isAdded, setIsAdded] = useState(false)
+  const { addItem } = useCart()
 
   if (!book) {
     return (
@@ -51,6 +53,17 @@ export default function BookPage({ params }: { params: Promise<{ id: string }> }
   }
 
   const handleAddToCart = () => {
+    addItem(
+      {
+        id: book.id,
+        title: book.title,
+        author: book.author,
+        price: book.price,
+        discountedPrice: book.discountedPrice,
+        image: book.image,
+      },
+      quantity
+    )
     setIsAdded(true)
     setTimeout(() => setIsAdded(false), 3000)
   }

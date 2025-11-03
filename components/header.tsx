@@ -6,6 +6,18 @@ import Link from "next/link"
 import { Button } from "@/components/ui/button"
 import { useCart } from "@/components/cart-provider"
 
+// لیست کتاب‌ها برای جستجو
+const books = [
+  { id: "1", title: "پدر", author: "میخائیل بولگاکوف" },
+  { id: "2", title: "ما کیستیم", author: "علی شریعتی" },
+  { id: "3", title: "یک یادداشت معمولی", author: "دوستایفسکی" },
+  { id: "4", title: "عادت‌های موفق", author: "جیمز کلیئر" },
+  { id: "5", title: "علم دین", author: "امام غزالی" },
+  { id: "6", title: "شنل‌های شگفت‌انگیز", author: "نویسنده ناشناخته" },
+  { id: "7", title: "تاریخ ایران", author: "کاظم پایا" },
+  { id: "8", title: "سفر به ماه", author: "ژول ورن" },
+]
+
 export function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
   const { count: cartCount } = useCart()
@@ -16,7 +28,22 @@ export function Header() {
     if (e) e.preventDefault()
     const q = query.trim()
     if (!q) return
-    router.push(`/search?q=${encodeURIComponent(q)}`)
+    
+    // جستجوی کتاب بر اساس عنوان یا نویسنده
+    const foundBook = books.find(
+      (book) =>
+        book.title.toLowerCase().includes(q.toLowerCase()) ||
+        book.author.toLowerCase().includes(q.toLowerCase())
+    )
+    
+    if (foundBook) {
+      // اگر کتاب پیدا شد، به صفحه جزئیات برو
+      router.push(`/book/${foundBook.id}`)
+      setQuery("") // پاک کردن فیلد جستجو
+    } else {
+      // اگر کتاب پیدا نشد، به صفحه جستجو برو (یا صفحه اصلی)
+      router.push(`/search?q=${encodeURIComponent(q)}`)
+    }
   }
 
   return (
@@ -69,7 +96,7 @@ export function Header() {
         </div>
 
         {/* موبایل هدر */}
-        <div className="md:hidden flex flex-row-reverse items-center justify-between">
+        <div className="md:hidden flex items-center justify-between">
           <Link href="/" className="flex items-center gap-2">
             <div className="w-8 h-8 bg-primary rounded-lg flex items-center justify-center">
               <span className="text-primary-foreground font-bold">📚</span>

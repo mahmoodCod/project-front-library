@@ -54,3 +54,21 @@ Read more: https://nextjs.org/docs/app/api-reference/components/image#loading
 [01:25:35.650] Server  LOG      ✓ Compiled in 5.3s
 [01:26:16.497] Server  LOG      ✓ Compiled in 1522ms
 [01:26:17.385] Server  LOG      ✓ Compiled in 162ms
+[01:32:55.202] Server  LOG      ✓ Compiled in 1785ms
+[01:36:29.893] Server  LOG      ✓ Compiled in 1780ms
+[01:36:44.954] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[01:36:45.204] Browser WARN    Image with src "/book-cover-1.png" was detected as the Largest Contentful Paint (LCP). Please add the `loading="eager"` property if this image is above the fold.
+Read more: https://nextjs.org/docs/app/api-reference/components/image#loading
+[01:37:43.742] Server  LOG      ✓ Compiled in 2s
+[01:37:56.848] Server  LOG      ✓ Compiled in 155ms
+[01:39:27.228] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[01:39:27.403] Browser WARN    Image with src "/book-cover-1.png" was detected as the Largest Contentful Paint (LCP). Please add the `loading="eager"` property if this image is above the fold.
+Read more: https://nextjs.org/docs/app/api-reference/components/image#loading
+[01:40:49.854] Server  LOG      ✓ Compiled in 2.4s
+[01:44:36.428] Server  LOG      ✓ Compiled in 1978ms
+[01:45:02.191] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[01:45:04.285] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[01:45:04.554] Browser WARN    Image with src "/book-cover-1.png" was detected as the Largest Contentful Paint (LCP). Please add the `loading="eager"` property if this image is above the fold.
+Read more: https://nextjs.org/docs/app/api-reference/components/image#loading
+[01:47:15.796] Server  LOG      ✓ Compiled in 2.3s
+[01:47:47.191] Server  LOG      ✓ Compiled in 2.4s
