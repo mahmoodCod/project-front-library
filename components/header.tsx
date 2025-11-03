@@ -37,10 +37,10 @@ export function Header() {
 
           {/* بخش راست - ورود و سبد خرید */}
           <div className="flex items-center gap-4">
-            <Button variant="ghost" className="flex items-center gap-2">
+            <Link href="/auth" className="flex items-center gap-2 px-3 py-2 rounded-lg hover:bg-muted">
               <span>👤</span>
               <span>ورود</span>
-            </Button>
+            </Link>
             <Button variant="ghost" className="relative">
               <span>🛒</span>
               {cartCount > 0 && (
