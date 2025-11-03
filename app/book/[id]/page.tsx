@@ -1,7 +1,7 @@
 "use client"
 
 import Image from "next/image"
-import { useState } from "react"
+import { useState, use as usePromise } from "react"
 import { Star, ShoppingCart, Heart, Share2, Check } from "lucide-react"
 import { Header } from "@/components/header"
 import { Button } from "@/components/ui/button"
@@ -32,8 +32,9 @@ const books = {
   },
 }
 
-export default function BookPage({ params }: { params: { id: string } }) {
-  const book = books[params.id as keyof typeof books]
+export default function BookPage({ params }: { params: Promise<{ id: string }> }) {
+  const { id } = usePromise(params)
+  const book = books[id as keyof typeof books]
   const [quantity, setQuantity] = useState(1)
   const [isFavorite, setIsFavorite] = useState(false)
   const [isAdded, setIsAdded] = useState(false)
