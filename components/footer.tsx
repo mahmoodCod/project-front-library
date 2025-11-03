@@ -1,8 +1,34 @@
 "use client"
 
-import type React from "react"
+import { useEffect, useState } from "react"
+import Link from "next/link"
+import { Instagram, Send, MessageCircle, Twitter, Facebook } from "lucide-react"
+import { getLinksByType, ensureDefaultLinks, type Link as LinkType } from "@/lib/links-store"
 
 export function Footer() {
+  const [footerCategories, setFooterCategories] = useState<LinkType[]>([])
+  const [footerSupport, setFooterSupport] = useState<LinkType[]>([])
+  const [socialLinks, setSocialLinks] = useState<LinkType[]>([])
+
+  useEffect(() => {
+    // اطمینان از اینکه همه لینک‌های پیش‌فرض وجود دارند
+    ensureDefaultLinks()
+    setFooterCategories(getLinksByType("footer-category"))
+    setFooterSupport(getLinksByType("footer-support"))
+    setSocialLinks(getLinksByType("social"))
+  }, [])
+
+  const getSocialIcon = (label: string) => {
+    const iconMap: Record<string, React.ComponentType<any>> = {
+      اینستاگرام: Instagram,
+      تلگرام: Send,
+      واتساپ: MessageCircle,
+      توییتر: Twitter,
+      فیسبوک: Facebook,
+    }
+    return iconMap[label] || MessageCircle
+  }
+
   return (
     <footer role="contentinfo" className="bg-card border-t border-border mt-12">
       <div className="max-w-7xl mx-auto px-4 py-10">
@@ -25,11 +51,17 @@ export function Footer() {
           <div className="w-full">
             <h3 className="font-semibold mb-4 text-foreground">دسته‌بندی‌ها</h3>
             <ul className="space-y-2 text-sm text-muted-foreground">
-              <li><a href="#" className="hover:text-primary transition-colors">داستان و رمان</a></li>
-              <li><a href="#" className="hover:text-primary transition-colors">تاریخ و تمدن</a></li>
-              <li><a href="#" className="hover:text-primary transition-colors">علمی و تحقیقاتی</a></li>
-              <li><a href="#" className="hover:text-primary transition-colors">خودیاری و موفقیت</a></li>
-              <li><a href="#" className="hover:text-primary transition-colors">کودکان و نوجوانان</a></li>
+              {footerCategories.length > 0 ? (
+                footerCategories.map((link) => (
+                  <li key={link.id}>
+                    <Link href={link.url} className="hover:text-primary transition-colors">
+                      {link.label}
+                    </Link>
+                  </li>
+                ))
+              ) : (
+                <li className="text-muted-foreground/50">هیچ لینکی تعریف نشده</li>
+              )}
             </ul>
           </div>
 
@@ -37,10 +69,17 @@ export function Footer() {
           <div className="w-full">
             <h3 className="font-semibold mb-4 text-foreground">پشتیبانی</h3>
             <ul className="space-y-2 text-sm text-muted-foreground">
-              <li><a href="#" className="hover:text-primary transition-colors">سوالات متداول</a></li>
-              <li><a href="#" className="hover:text-primary transition-colors">قوانین و مقررات</a></li>
-              <li><a href="#" className="hover:text-primary transition-colors">حریم خصوصی</a></li>
-              <li><a href="#" className="hover:text-primary transition-colors">پیگیری سفارش</a></li>
+              {footerSupport.length > 0 ? (
+                footerSupport.map((link) => (
+                  <li key={link.id}>
+                    <Link href={link.url} className="hover:text-primary transition-colors">
+                      {link.label}
+                    </Link>
+                  </li>
+                ))
+              ) : (
+                <li className="text-muted-foreground/50">هیچ لینکی تعریف نشده</li>
+              )}
             </ul>
           </div>
 
@@ -48,7 +87,7 @@ export function Footer() {
           <div className="w-full">
             <h3 className="font-semibold mb-4 text-foreground">عضویت در خبرنامه</h3>
             <p className="text-sm text-muted-foreground mb-3">جدیدترین کتاب‌ها و تخفیف‌ها را زودتر از همه دریافت کنید.</p>
-            <form className="flex flex-col sm:flex-row items-center justify-center sm:justify-start gap-2 mb-4" onSubmit={(e: any) => e.preventDefault()}>
+            <form className="flex flex-col sm:flex-row items-center justify-center sm:justify-start gap-2 mb-4" onSubmit={(e: React.FormEvent<HTMLFormElement>) => e.preventDefault()}>
               <input
                 type="email"
                 required
@@ -65,10 +104,27 @@ export function Footer() {
               <span className="opacity-40">|</span>
               <span className="whitespace-nowrap">تلفن: 021-12345678</span>
             </div>
-            <div className="mt-3 flex items-center justify-center sm:justify-start gap-3 text-xl">
-              <a href="#" aria-label="اینستاگرام" className="hover:text-primary transition-colors">📷</a>
-              <a href="#" aria-label="تلگرام" className="hover:text-primary transition-colors">✈️</a>
-              <a href="#" aria-label="توئیتر" className="hover:text-primary transition-colors">🐦</a>
+            <div className="mt-3 flex items-center justify-center sm:justify-start gap-3">
+              {socialLinks.length > 0 ? (
+                socialLinks.map((link) => {
+                  const IconComponent = getSocialIcon(link.label)
+                  return (
+                    <a
+                      key={link.id}
+                      href={link.url}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      aria-label={link.label}
+                      className="w-10 h-10 rounded-lg bg-muted hover:bg-primary hover:text-primary-foreground flex items-center justify-center transition-colors"
+                      title={link.label}
+                    >
+                      <IconComponent className="w-5 h-5" />
+                    </a>
+                  )
+                })
+              ) : (
+                <span className="text-muted-foreground/50 text-xs">هیچ لینک اجتماعی تعریف نشده</span>
+              )}
             </div>
           </div>
         </div>

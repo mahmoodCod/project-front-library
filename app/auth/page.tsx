@@ -10,6 +10,7 @@ import { useState } from "react"
 import Link from "next/link"
 import { useAuth } from "@/components/auth-provider"
 import { useRouter } from "next/navigation"
+import { addUser, getUserByUsername } from "@/lib/users-store"
 
 export default function AuthPage() {
   // Local form states (demo only)
@@ -97,14 +98,34 @@ export default function AuthPage() {
                       setLoginErrors(errs)
                       if (Object.keys(errs).length) return
 
-                      // try admin login
-                      const ok = login(loginData.username.trim(), loginData.password)
-                      if (ok) {
-                        router.push("/admin")
+                      // چک کردن admin
+                      if (loginData.username.trim() === "admin") {
+                        const ok = login(loginData.username.trim(), loginData.password)
+                        if (ok) {
+                          router.push("/admin")
+                          return
+                        } else {
+                          setLoginErrors({ password: "رمز عبور اشتباه است" })
+                          return
+                        }
+                      }
+                      
+                      // چک کردن اینکه کاربر عادی ثبت نام کرده باشد
+                      const user = getUserByUsername(loginData.username.trim())
+                      if (!user) {
+                        setLoginErrors({ username: "کاربری با این نام کاربری پیدا نشد. لطفاً ابتدا ثبت نام کنید." })
                         return
                       }
-                      // fallback: go home
-                      router.push("/")
+
+                      // try login برای کاربر عادی
+                      const ok = login(loginData.username.trim(), loginData.password)
+                      if (ok) {
+                        router.push("/")
+                        return
+                      }
+                      
+                      // اگر ورود موفق نبود
+                      setLoginErrors({ password: "رمز عبور اشتباه است" })
                     }}
                     noValidate
                   >
@@ -179,8 +200,33 @@ export default function AuthPage() {
                       if (!registerData.username.trim()) errs.username = "نام کاربری الزامی است"
                       if (!registerData.password || registerData.password.length < 8) errs.password = "رمز عبور باید حداقل ۸ کاراکتر باشد"
                       if (!/^0?9\d{9}$/.test(registerData.phone)) errs.phone = "شماره موبایل را به شکل صحیح وارد کنید (مثال: 09xxxxxxxxx)"
+                      
+                      // چک کردن اینکه نام کاربری تکراری نباشد
+                      if (registerData.username.trim() && getUserByUsername(registerData.username.trim())) {
+                        errs.username = "این نام کاربری قبلاً استفاده شده است"
+                      }
+                      
                       setRegisterErrors(errs)
                       if (Object.keys(errs).length) return
+
+                      // ثبت نام کاربر
+                      try {
+                        const newUser = addUser({
+                          firstName: registerData.firstName.trim(),
+                          lastName: registerData.lastName.trim(),
+                          username: registerData.username.trim(),
+                          password: registerData.password,
+                          phone: registerData.phone,
+                        })
+                        
+                        // بعد از ثبت نام، کاربر را وارد کن
+                        login(newUser.username, newUser.password)
+                        router.push("/")
+                        alert("ثبت نام با موفقیت انجام شد و شما وارد شدید")
+                      } catch (error) {
+                        const errorMessage = error instanceof Error ? error.message : "خطا در ثبت نام"
+                        setRegisterErrors({ username: errorMessage })
+                      }
                     }}
                     noValidate
                   >

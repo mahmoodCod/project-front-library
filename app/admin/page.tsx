@@ -43,8 +43,8 @@ export default function AdminDashboard() {
     <div className="space-y-6">
       <div className="flex items-center justify-between">
         <div>
-          <h1 className="text-2xl font-bold">داشبورد</h1>
-          <p className="text-muted-foreground text-sm">نمای کلی عملکرد فروشگاه</p>
+          <h1 className="text-xl font-bold">داشبورد</h1>
+          <p className="text-muted-foreground text-xs">نمای کلی عملکرد فروشگاه</p>
         </div>
         <Button size="sm" variant="outline">گزارش امروز</Button>
       </div>
@@ -57,10 +57,10 @@ export default function AdminDashboard() {
             <div key={idx} className="bg-card border border-border rounded-lg p-5">
               <div className="flex items-start justify-between">
                 <div>
-                  <p className="text-sm text-muted-foreground mb-1">{stat.label}</p>
-                  <p className="text-2xl font-bold">{stat.value}</p>
+                  <p className="text-xs text-muted-foreground mb-1">{stat.label}</p>
+                  <p className="text-xl font-bold">{stat.value}</p>
                 </div>
-                <Icon className={`w-7 h-7 ${stat.color}`} />
+                <Icon className={`w-6 h-6 ${stat.color}`} />
               </div>
             </div>
           )
@@ -69,7 +69,7 @@ export default function AdminDashboard() {
 
       <div className="grid md:grid-cols-2 gap-6">
         <div className="bg-card border border-border rounded-lg p-5">
-          <h2 className="text-lg font-bold mb-3">فروش ماهانه</h2>
+          <h2 className="text-base font-bold mb-3">فروش ماهانه</h2>
           <ResponsiveContainer width="100%" height={260}>
             <LineChart data={chartData}>
               <CartesianGrid strokeDasharray="3 3" />
@@ -82,13 +82,13 @@ export default function AdminDashboard() {
           </ResponsiveContainer>
         </div>
         <div className="bg-card border border-border rounded-lg p-5">
-          <h2 className="text-lg font-bold mb-3">درآمد</h2>
+          <h2 className="text-base font-bold mb-3">درآمد</h2>
           <ResponsiveContainer width="100%" height={260}>
             <BarChart data={chartData}>
               <CartesianGrid strokeDasharray="3 3" />
               <XAxis dataKey="month" />
               <YAxis />
-              <Tooltip />
+              <Tooltip cursor={false} />
               <Legend />
               <Bar dataKey="revenue" fill="#d4a574" name="درآمد" />
             </BarChart>
@@ -101,7 +101,43 @@ export default function AdminDashboard() {
           <h2 className="text-lg font-bold">سفارشات اخیر</h2>
           <Button variant="outline" size="sm">مشاهده همه</Button>
         </div>
-        <div className="overflow-x-auto">
+
+        {/* نمایش موبایل - کارت‌بندی */}
+        <div className="md:hidden grid grid-cols-2 gap-3">
+          {recentOrders.map((order) => (
+            <div key={order.id} className="bg-muted/50 border border-border rounded-lg p-3 space-y-2">
+              <div className="flex items-center justify-between gap-1">
+                <span className="text-xs font-semibold">#{order.id}</span>
+                <span className={`px-1.5 py-0.5 rounded-full text-[10px] font-semibold whitespace-nowrap ${
+                  order.status === "تکمیل شده"
+                    ? "bg-green-100 text-green-700"
+                    : order.status === "در حال ارسال"
+                      ? "bg-blue-100 text-blue-700"
+                      : "bg-yellow-100 text-yellow-700"
+                }`}>
+                  {order.status}
+                </span>
+              </div>
+              <div className="space-y-1">
+                <div className="flex items-center justify-between text-xs gap-1">
+                  <span className="text-muted-foreground text-[10px]">مشتری:</span>
+                  <span className="font-medium text-xs truncate">{order.customer}</span>
+                </div>
+                <div className="flex items-center justify-between text-xs gap-1">
+                  <span className="text-muted-foreground text-[10px]">مبلغ:</span>
+                  <span className="font-semibold text-xs">{order.total} ت</span>
+                </div>
+                <div className="flex items-center justify-between text-xs gap-1">
+                  <span className="text-muted-foreground text-[10px]">تاریخ:</span>
+                  <span className="text-muted-foreground text-[10px]">{order.date}</span>
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
+
+        {/* نمایش دسکتاپ - جدول */}
+        <div className="hidden md:block overflow-x-auto">
           <table className="w-full text-sm">
             <thead>
               <tr className="border-b border-border">

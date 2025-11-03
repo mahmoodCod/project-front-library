@@ -1,6 +1,6 @@
 "use client"
 
-import { useState } from "react"
+import { useState, useEffect } from "react"
 import { useRouter } from "next/navigation"
 import Link from "next/link"
 import { Button } from "@/components/ui/button"
@@ -10,10 +10,15 @@ import { getBooks } from "@/lib/books-store"
 
 export function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
+  const [isMounted, setIsMounted] = useState(false)
   const { count: cartCount } = useCart()
   const [query, setQuery] = useState("")
   const router = useRouter()
-  const { isAdmin } = useAuth()
+  const { isAdmin, user } = useAuth()
+
+  useEffect(() => {
+    setIsMounted(true)
+  }, [])
 
   function submitSearch(e?: React.FormEvent<HTMLFormElement>) {
     if (e) e.preventDefault()
@@ -72,18 +77,25 @@ export function Header() {
 
           {/* بخش راست - ورود و سبد خرید */}
           <div className="flex items-center gap-4">
-            {isAdmin && (
+            {isMounted && isAdmin && (
               <Link href="/admin" className="px-3 py-2 rounded-lg hover:bg-muted font-medium text-primary">
                 مدیریت
               </Link>
             )}
-            <Link href="/auth" className="flex items-center gap-2 px-3 py-2 rounded-lg hover:bg-muted">
-              <span>👤</span>
-              <span>ورود</span>
-            </Link>
+            {isMounted && (user ? (
+              <Link href="/profile" className="flex items-center gap-2 px-3 py-2 rounded-lg hover:bg-muted">
+                <span>👤</span>
+                <span>پروفایل</span>
+              </Link>
+            ) : (
+              <Link href="/auth" className="flex items-center gap-2 px-3 py-2 rounded-lg hover:bg-muted">
+                <span>👤</span>
+                <span>ورود</span>
+              </Link>
+            ))}
             <Link href="/cart" className="relative px-3 py-2 rounded-lg hover:bg-muted">
               <span>🛒</span>
-              {cartCount > 0 && (
+              {isMounted && cartCount > 0 && (
                 <span className="absolute -top-2 -right-2 bg-accent text-accent-foreground rounded-full w-5 h-5 flex items-center justify-center text-xs font-bold">
                   {cartCount}
                 </span>
@@ -102,14 +114,14 @@ export function Header() {
           </Link>
 
           <div className="flex items-center gap-2">
-            {isAdmin && (
+            {isMounted && isAdmin && (
               <Link href="/admin" className="px-2 py-1 rounded-lg hover:bg-muted text-primary text-sm">
                 مدیریت
               </Link>
             )}
             <Link href="/cart" className="relative px-2 py-1 rounded-lg hover:bg-muted">
               <span>🛒</span>
-              {cartCount > 0 && (
+              {isMounted && cartCount > 0 && (
                 <span className="absolute -top-2 -right-2 bg-accent text-accent-foreground rounded-full w-4 h-4 flex items-center justify-center text-xs font-bold">
                   {cartCount}
                 </span>
@@ -137,10 +149,17 @@ export function Header() {
                 🔍
               </button>
             </form>
-            <Link href="/auth" className="w-full flex items-center justify-center gap-2 border border-border rounded-lg py-2 bg-transparent hover:bg-muted">
-              <span className="text-lg me-2">👤</span>
-              <span>ورود</span>
-            </Link>
+            {isMounted && (user ? (
+              <Link href="/profile" className="w-full flex items-center justify-center gap-2 border border-border rounded-lg py-2 bg-transparent hover:bg-muted">
+                <span className="text-lg me-2">👤</span>
+                <span>پروفایل</span>
+              </Link>
+            ) : (
+              <Link href="/auth" className="w-full flex items-center justify-center gap-2 border border-border rounded-lg py-2 bg-transparent hover:bg-muted">
+                <span className="text-lg me-2">👤</span>
+                <span>ورود</span>
+              </Link>
+            ))}
           </div>
         )}
       </div>

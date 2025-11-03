@@ -1,9 +1,11 @@
 "use client"
 
 import React from "react"
+import { verifyUser, getUserById, type User } from "@/lib/users-store"
 
 type AuthContextValue = {
   isAdmin: boolean
+  user: User | null
   login: (username: string, password: string) => boolean
   logout: () => void
 }
@@ -20,6 +22,20 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
     }
   })
 
+  const [user, setUser] = React.useState<User | null>(() => {
+    if (typeof window === "undefined") return null
+    try {
+      const userId = window.localStorage.getItem("current-user-id")
+      if (userId) {
+        const foundUser = getUserById(userId)
+        return foundUser
+      }
+      return null
+    } catch {
+      return null
+    }
+  })
+
   React.useEffect(() => {
     try {
       if (isAdmin) window.localStorage.setItem("is-admin", "1")
@@ -27,17 +43,38 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
     } catch {}
   }, [isAdmin])
 
+  React.useEffect(() => {
+    try {
+      if (user) window.localStorage.setItem("current-user-id", user.id)
+      else window.localStorage.removeItem("current-user-id")
+    } catch {}
+  }, [user])
+
   const login = React.useCallback((username: string, password: string) => {
+    // چک کردن admin
     if (username === "admin" && password === "admin1234") {
       setIsAdmin(true)
+      setUser(null)
       return true
     }
+    
+    // چک کردن کاربر عادی
+    const foundUser = verifyUser(username, password)
+    if (foundUser) {
+      setUser(foundUser)
+      setIsAdmin(false)
+      return true
+    }
+    
     return false
   }, [])
 
-  const logout = React.useCallback(() => setIsAdmin(false), [])
+  const logout = React.useCallback(() => {
+    setIsAdmin(false)
+    setUser(null)
+  }, [])
 
-  const value = React.useMemo(() => ({ isAdmin, login, logout }), [isAdmin, login, logout])
+  const value = React.useMemo(() => ({ isAdmin, user, login, logout }), [isAdmin, user, login, logout])
 
   return <AuthContext.Provider value={value}>{children}</AuthContext.Provider>
 }

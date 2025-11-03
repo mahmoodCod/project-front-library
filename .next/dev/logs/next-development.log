@@ -182,3 +182,338 @@ Read more: https://nextjs.org/docs/app/api-reference/components/image#loading
 [05:50:42.963] Server  LOG      ✓ Compiled in 1467ms
 [05:52:11.940] Server  LOG      ○ Compiling /admin/books/[id]/edit ...
 [05:53:47.314] Server  LOG      ○ Compiling /admin/books/new ...
+[06:03:51.358] Server  LOG      ✓ Compiled in 4.1s
+[06:04:26.565] Server  LOG      ✓ Compiled in 1224ms
+[06:05:01.780] Server  LOG      ○ Compiling /admin/orders/[id] ...
+[06:07:17.237] Server  LOG      ✓ Compiled in 3.5s
+[06:07:21.888] Server  LOG      ✓ Compiled in 622ms
+[06:10:23.942] Server  LOG      ✓ Compiled in 1647ms
+[06:10:40.685] Server  LOG      ✓ Compiled in 2.2s
+[06:11:48.128] Server  LOG      ○ Compiling /admin/links/[id]/edit ...
+[06:14:10.554] Server  LOG      ✓ Compiled in 2.3s
+[06:14:11.745] Server  LOG      ✓ Compiled in 125ms
+[06:14:33.550] Server  LOG      ✓ Compiled in 197ms
+[06:14:46.232] Server  LOG      ✓ Compiled in 327ms
+[06:15:58.563] Server  LOG      ✓ Compiled in 324ms
+[06:16:15.805] Server  LOG      ✓ Compiled in 161ms
+[06:17:11.865] Server  LOG      ✓ Compiled in 4.1s
+[06:17:22.755] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[06:17:23.824] Browser ERROR   uncaughtError: Error: Hydration failed because the server rendered text didn't match the client. As a result this tree will be regenerated on the client. This can happen if a SSR-ed Client Component used:
+
+- A server/client branch `if (typeof window !== 'undefined')`.
+- Variable input such as `Date.now()` or `Math.random()` which changes each time it's called.
+- Date formatting in a user's locale which doesn't match the server.
+- External changing data without sending a snapshot of it along with the HTML.
+- Invalid HTML tag nesting.
+
+It can also happen if the client has a browser extension installed which messes with the HTML before React loaded.
+
+https://react.dev/link/hydration-mismatch
+
+  ...
+    <RedirectErrorBoundary router={{...}}>
+      <InnerLayoutRouter url="/" tree={[...]} params={{}} cacheNode={{lazyData:null, ...}} segmentPath={[...]} ...>
+        <SegmentViewNode type="page" pagePath="page.tsx">
+          <SegmentTrieNode>
+          <ClientPageRoot Component={function Home} serverProvidedParams={{...}}>
+            <Home params={Promise} searchParams={Promise}>
+              <main className="jsx-8c1314...">
+                <Header>
+                  <header className="sticky top...">
+                    <div className="max-w-7xl ...">
+                      <div className="hidden md:...">
+                        <LinkComponent>
+                        <div>
+                        <div className="flex items...">
+                          <LinkComponent href="/admin" className="px-3 py-2 ...">
+                            <a
++                             className="px-3 py-2 rounded-lg hover:bg-muted font-medium text-primary"
+-                             className="flex items-center gap-2 px-3 py-2 rounded-lg hover:bg-muted"
+                              ref={function}
+                              onClick={function onClick}
+                              onMouseEnter={function onMouseEnter}
+                              onTouchStart={function onTouchStart}
++                             href="/admin"
+-                             href="/auth"
+                            >
++                             مدیریت
+-                             👤ورود
+                          ...
+                      ...
+                ...
+        ...
+      ...
+
+[06:17:35.244] Server  LOG      ✓ Compiled in 232ms
+[06:17:48.412] Browser WARN    Image with src "/book-cover-1.png" was detected as the Largest Contentful Paint (LCP). Please add the `loading="eager"` property if this image is above the fold.
+Read more: https://nextjs.org/docs/app/api-reference/components/image#loading
+[06:20:17.127] Server  LOG      ✓ Compiled in 2.1s
+[06:20:54.391] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[06:20:54.902] Browser ERROR   uncaughtError: Error: Hydration failed because the server rendered text didn't match the client. As a result this tree will be regenerated on the client. This can happen if a SSR-ed Client Component used:
+
+- A server/client branch `if (typeof window !== 'undefined')`.
+- Variable input such as `Date.now()` or `Math.random()` which changes each time it's called.
+- Date formatting in a user's locale which doesn't match the server.
+- External changing data without sending a snapshot of it along with the HTML.
+- Invalid HTML tag nesting.
+
+It can also happen if the client has a browser extension installed which messes with the HTML before React loaded.
+
+https://react.dev/link/hydration-mismatch
+
+  ...
+    <RedirectErrorBoundary router={{...}}>
+      <InnerLayoutRouter url="/" tree={[...]} params={{}} cacheNode={{lazyData:null, ...}} segmentPath={[...]} ...>
+        <SegmentViewNode type="page" pagePath="page.tsx">
+          <SegmentTrieNode>
+          <ClientPageRoot Component={function Home} serverProvidedParams={{...}}>
+            <Home params={Promise} searchParams={Promise}>
+              <main className="jsx-8c1314...">
+                <Header>
+                  <header className="sticky top...">
+                    <div className="max-w-7xl ...">
+                      <div className="hidden md:...">
+                        <LinkComponent>
+                        <div>
+                        <div className="flex items...">
+                          <LinkComponent href="/admin" className="px-3 py-2 ...">
+                            <a
++                             className="px-3 py-2 rounded-lg hover:bg-muted font-medium text-primary"
+-                             className="flex items-center gap-2 px-3 py-2 rounded-lg hover:bg-muted"
+                              ref={function}
+                              onClick={function onClick}
+                              onMouseEnter={function onMouseEnter}
+                              onTouchStart={function onTouchStart}
++                             href="/admin"
+-                             href="/auth"
+                            >
++                             مدیریت
+-                             👤ورود
+                          ...
+                      ...
+                ...
+        ...
+      ...
+
+[06:20:55.006] Browser WARN    Image with src "/book-cover-1.png" was detected as the Largest Contentful Paint (LCP). Please add the `loading="eager"` property if this image is above the fold.
+Read more: https://nextjs.org/docs/app/api-reference/components/image#loading
+[06:21:42.477] Server  LOG      ✓ Compiled in 1700ms
+[06:21:44.421] Server  LOG      ✓ Compiled in 125ms
+[06:21:48.145] Server  LOG      ✓ Compiled in 138ms
+[06:22:15.548] Server  LOG      ○ Compiling /cart ...
+[06:24:27.312] Server  LOG      ✓ Compiled in 3.4s
+[06:24:29.607] Server  LOG      ✓ Compiled in 140ms
+[06:30:36.795] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[06:31:04.547] Server  LOG      ○ Compiling /admin/links/new ...
+[06:31:32.953] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[06:31:35.148] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[06:34:14.929] Server  LOG      ○ Compiling /admin/customers ...
+[06:35:07.411] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[06:35:09.211] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[06:36:16.492] Server  LOG      ✓ Compiled in 4.3s
+[06:36:16.523] Browser ERROR   uncaughtError: ReferenceError: BarChart3 is not defined
+[06:36:16.554] Server  WARN     ⚠ Fast Refresh had to perform a full reload due to a runtime error.
+[06:36:18.997] Server  ERROR    ⨯ ReferenceError: BarChart3 is not defined
+[06:36:19.862] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[06:36:21.676] Server  LOG      ✓ Compiled in 207ms
+[06:36:47.382] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[06:36:50.040] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[06:38:58.231] Server  LOG      ✓ Compiled in 3.9s
+[06:41:20.250] Server  LOG      ○ Compiling /admin/settings ...
+[08:36:02.503] Browser WARN    ImmutableStateInvariantMiddleware took 45ms, which is more than the warning threshold of 32ms. 
+If your state or actions are very large, you may want to disable the middleware as it might cause too much of a slowdown in development mode. See https://redux-toolkit.js.org/api/getDefaultMiddleware for instructions.
+It is disabled in production builds, so you don't need to worry about that.
+[08:36:13.818] Server  LOG      ✓ Compiled in 8.7s
+[08:36:18.828] Browser ERROR   unhandledRejection: undefined
+[08:36:26.965] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[08:36:30.737] Server  LOG      ✓ Compiled in 2.3s
+[08:36:38.390] Server  LOG      ✓ Compiled in 307ms
+[08:36:42.589] Server  LOG      ✓ Compiled in 220ms
+[08:39:24.512] Server  LOG      ✓ Compiled in 18ms
+[08:43:42.207] Server  LOG      ✓ Compiled in 1476ms
+[08:44:53.068] Server  LOG      ✓ Compiled in 1949ms
+[08:46:05.069] Server  LOG      ✓ Compiled in 2.4s
+[08:47:05.041] Server  LOG      ✓ Compiled in 1152ms
+[08:47:08.268] Server  LOG      ✓ Compiled in 201ms
+[08:47:16.452] Server  LOG      ✓ Compiled in 135ms
+[08:50:33.328] Server  LOG      ✓ Compiled in 1954ms
+[08:50:41.586] Server  LOG      ✓ Compiled in 246ms
+[08:52:47.389] Server  LOG      ✓ Compiled in 1642ms
+[08:52:51.300] Server  LOG      ✓ Compiled in 195ms
+[08:52:56.018] Server  LOG      ✓ Compiled in 124ms
+[08:52:58.753] Server  LOG      ✓ Compiled in 121ms
+[08:53:06.826] Server  LOG      ✓ Compiled in 1118ms
+[08:54:37.507] Server  LOG      ✓ Compiled in 2.4s
+[08:54:58.636] Server  LOG      ✓ Compiled in 1833ms
+[08:57:41.661] Server  LOG      ✓ Compiled in 2.3s
+[08:57:46.274] Server  LOG      ✓ Compiled in 712ms
+[08:58:07.853] Server  LOG      ✓ Compiled in 605ms
+[08:59:17.593] Server  LOG      ✓ Compiled in 1084ms
+[08:59:26.038] Server  LOG      ✓ Compiled in 275ms
+[08:59:29.777] Server  LOG      ✓ Compiled in 132ms
+[08:59:32.780] Server  LOG      ✓ Compiled in 155ms
+[08:59:43.374] Server  LOG      ✓ Compiled in 1962ms
+[09:01:16.733] Server  LOG      ✓ Compiled in 1947ms
+[09:01:21.471] Server  LOG      ✓ Compiled in 189ms
+[09:01:58.560] Server  LOG      ✓ Compiled in 2.2s
+[09:02:04.263] Server  LOG      ✓ Compiled in 145ms
+[09:03:10.103] Server  LOG      ✓ Compiled in 2.3s
+[09:03:18.840] Server  LOG      ✓ Compiled in 299ms
+[09:03:22.197] Server  LOG      ✓ Compiled in 187ms
+[09:03:27.388] Server  LOG      ✓ Compiled in 588ms
+[09:03:46.821] Server  LOG      ✓ Compiled in 2s
+[09:09:34.032] Server  LOG      ✓ Compiled in 2.8s
+[09:09:52.614] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[09:11:05.146] Server  LOG      ✓ Compiled in 1367ms
+[09:12:27.305] Server  LOG      ✓ Compiled in 2.6s
+[09:13:37.504] Server  LOG      ✓ Compiled in 220ms
+[09:13:56.638] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[09:13:56.910] Browser WARN    Image with src "/book-cover-1.png" was detected as the Largest Contentful Paint (LCP). Please add the `loading="eager"` property if this image is above the fold.
+Read more: https://nextjs.org/docs/app/api-reference/components/image#loading
+[09:15:53.586] Server  LOG      ○ Compiling /profile ...
+[09:18:45.058] Server  LOG      ✓ Compiled in 3.6s
+[09:19:18.741] Server  LOG      ✓ Compiled in 1648ms
+[09:20:18.452] Server  LOG      ✓ Compiled in 1905ms
+[09:20:21.872] Browser ERROR   uncaughtError: ReferenceError: Footer is not defined
+[09:20:22.234] Server  LOG      ✓ Compiled in 184ms
+[09:20:22.359] Server  WARN     ⚠ Fast Refresh had to perform a full reload due to a runtime error.
+[09:20:28.962] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[09:20:29.333] Browser ERROR   uncaughtError: Error: Hydration failed because the server rendered HTML didn't match the client. As a result this tree will be regenerated on the client. This can happen if a SSR-ed Client Component used:
+
+- A server/client branch `if (typeof window !== 'undefined')`.
+- Variable input such as `Date.now()` or `Math.random()` which changes each time it's called.
+- Date formatting in a user's locale which doesn't match the server.
+- External changing data without sending a snapshot of it along with the HTML.
+- Invalid HTML tag nesting.
+
+It can also happen if the client has a browser extension installed which messes with the HTML before React loaded.
+
+https://react.dev/link/hydration-mismatch
+
+  ...
+    <RenderFromTemplateContext>
+      <ScrollAndFocusHandler segmentPath={[...]}>
+        <InnerScrollAndFocusHandler segmentPath={[...]} focusAndScrollRef={{apply:false, ...}}>
+          <ErrorBoundary errorComponent={undefined} errorStyles={undefined} errorScripts={undefined}>
+            <LoadingBoundary name="profile/" loading={null}>
+              <HTTPAccessFallbackBoundary notFound={undefined} forbidden={undefined} unauthorized={undefined}>
+                <RedirectBoundary>
+                  <RedirectErrorBoundary router={{...}}>
+                    <InnerLayoutRouter url="/profile" tree={[...]} params={{}} cacheNode={{lazyData:null, ...}} ...>
+                      <SegmentViewNode type="page" pagePath="profile/pa...">
+                        <SegmentTrieNode>
+                        <ClientPageRoot Component={function ProfilePage} serverProvidedParams={{...}}>
+                          <ProfilePage params={Promise} searchParams={Promise}>
++                           <main className="min-h-screen bg-background flex flex-col">
+-                           <Suspense>
+                      ...
+                    ...
+          ...
+
+[09:21:39.296] Server  LOG      ✓ Compiled in 3.3s
+[09:21:39.462] Browser ERROR   ./app/profile/page.tsx:255:9
+Parsing ecmascript source code failed
+  253 |           </Tabs>
+  254 |         </div>
+> 255 |       </div>
+      |         ^^^
+  256 |     </main>
+  257 |   )
+  258 | }
+
+Expected '>', got 'div'
+
+Import traces:
+  Client Component Browser:
+    ./app/profile/page.tsx [Client Component Browser]
+    ./app/profile/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./app/profile/page.tsx [Client Component SSR]
+    ./app/profile/page.tsx [Server Component]
+[09:21:40.726] Server  LOG      ✓ Compiled in 885ms
+[09:23:08.587] Server  LOG      ✓ Compiled in 2.7s
+[09:23:21.939] Server  LOG      ✓ Compiled in 1932ms
+[09:23:29.546] Server  LOG      ✓ Compiled in 227ms
+[09:23:55.066] Server  LOG      ✓ Compiled in 853ms
+[09:23:57.397] Server  LOG      ✓ Compiled in 191ms
+[09:24:00.972] Server  LOG      ✓ Compiled in 285ms
+[09:25:53.247] Server  LOG      ✓ Compiled in 13.1s
+[09:25:53.828] Server  WARN     ⚠ Fast Refresh had to perform a full reload when ./components/auth-provider.tsx changed. Read more: https://nextjs.org/docs/messages/fast-refresh-reload
+[09:26:04.884] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[09:26:05.126] Browser ERROR   uncaughtError: Error: Hydration failed because the server rendered HTML didn't match the client. As a result this tree will be regenerated on the client. This can happen if a SSR-ed Client Component used:
+
+- A server/client branch `if (typeof window !== 'undefined')`.
+- Variable input such as `Date.now()` or `Math.random()` which changes each time it's called.
+- Date formatting in a user's locale which doesn't match the server.
+- External changing data without sending a snapshot of it along with the HTML.
+- Invalid HTML tag nesting.
+
+It can also happen if the client has a browser extension installed which messes with the HTML before React loaded.
+
+https://react.dev/link/hydration-mismatch
+
+  ...
+    <RenderFromTemplateContext>
+      <ScrollAndFocusHandler segmentPath={[...]}>
+        <InnerScrollAndFocusHandler segmentPath={[...]} focusAndScrollRef={{apply:false, ...}}>
+          <ErrorBoundary errorComponent={undefined} errorStyles={undefined} errorScripts={undefined}>
+            <LoadingBoundary name="profile/" loading={null}>
+              <HTTPAccessFallbackBoundary notFound={undefined} forbidden={undefined} unauthorized={undefined}>
+                <RedirectBoundary>
+                  <RedirectErrorBoundary router={{...}}>
+                    <InnerLayoutRouter url="/profile" tree={[...]} params={{}} cacheNode={{lazyData:null, ...}} ...>
+                      <SegmentViewNode type="page" pagePath="profile/pa...">
+                        <SegmentTrieNode>
+                        <ClientPageRoot Component={function ProfilePage} serverProvidedParams={{...}}>
+                          <ProfilePage params={Promise} searchParams={Promise}>
+                            <Header>
++                             <header className="sticky top-0 z-50 bg-white border-b border-border shadow-sm">
+-                             <Suspense>
+                            ...
+                      ...
+                    ...
+          ...
+
+[09:27:21.529] Server  LOG      ✓ Compiled in 3.4s
+[09:29:48.692] Server  LOG      ✓ Compiled in 6.8s
+[09:29:55.677] Browser ERROR   uncaughtError: ReferenceError: socialIcons is not defined
+[09:29:55.681] Browser ERROR   Failed to fetch RSC payload for http://localhost:3000/profile. Falling back to browser navigation. {}
+[09:29:58.767] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[09:29:59.028] Browser ERROR   uncaughtError: Error: Hydration failed because the server rendered HTML didn't match the client. As a result this tree will be regenerated on the client. This can happen if a SSR-ed Client Component used:
+
+- A server/client branch `if (typeof window !== 'undefined')`.
+- Variable input such as `Date.now()` or `Math.random()` which changes each time it's called.
+- Date formatting in a user's locale which doesn't match the server.
+- External changing data without sending a snapshot of it along with the HTML.
+- Invalid HTML tag nesting.
+
+It can also happen if the client has a browser extension installed which messes with the HTML before React loaded.
+
+https://react.dev/link/hydration-mismatch
+
+  ...
+    <RenderFromTemplateContext>
+      <ScrollAndFocusHandler segmentPath={[...]}>
+        <InnerScrollAndFocusHandler segmentPath={[...]} focusAndScrollRef={{apply:false, ...}}>
+          <ErrorBoundary errorComponent={undefined} errorStyles={undefined} errorScripts={undefined}>
+            <LoadingBoundary name="profile/" loading={null}>
+              <HTTPAccessFallbackBoundary notFound={undefined} forbidden={undefined} unauthorized={undefined}>
+                <RedirectBoundary>
+                  <RedirectErrorBoundary router={{...}}>
+                    <InnerLayoutRouter url="/profile" tree={[...]} params={{}} cacheNode={{lazyData:null, ...}} ...>
+                      <SegmentViewNode type="page" pagePath="profile/pa...">
+                        <SegmentTrieNode>
+                        <ClientPageRoot Component={function ProfilePage} serverProvidedParams={{...}}>
+                          <ProfilePage params={Promise} searchParams={Promise}>
+                            <Header>
++                             <header className="sticky top-0 z-50 bg-white border-b border-border shadow-sm">
+-                             <Suspense>
+                            ...
+                      ...
+                    ...
+          ...
+
+[09:32:58.375] Server  LOG      ✓ Compiled in 3.7s
+[09:33:07.215] Server  LOG      ✓ Compiled in 286ms
+[09:33:17.948] Server  LOG      ✓ Compiled in 245ms

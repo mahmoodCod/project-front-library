@@ -112,8 +112,8 @@ export default function Home() {
                           reviews={book.reviews}
                         />
                       </div>
-                    ))}
-                  </div>
+            ))}
+          </div>
                 </div>
               </div>
             </div>
