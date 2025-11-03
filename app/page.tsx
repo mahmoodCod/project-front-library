@@ -4,7 +4,6 @@ import { useState, useMemo } from "react"
 import { Header } from "@/components/header"
 import { CategoryMenu } from "@/components/category-menu"
 import { BookCard } from "@/components/book-card"
-import { FeaturedSection } from "@/components/featured-section"
 
 // نمونه داده‌های کتاب
 const books = [
@@ -90,6 +89,14 @@ const books = [
   },
 ]
 
+const categoryGroups: { key: string; title: string }[] = [
+  { key: "fiction", title: "داستان و رمان" },
+  { key: "history", title: "تاریخ و تمدن" },
+  { key: "science", title: "علمی و تحقیقاتی" },
+  { key: "self-help", title: "خودیاری و موفقیت" },
+  { key: "kids", title: "کودکان و نوجوانان" },
+]
+
 export default function Home() {
   const [selectedCategory, setSelectedCategory] = useState<string>("all")
   const [sortBy, setSortBy] = useState<"popular" | "price-low" | "price-high">("popular")
@@ -101,7 +108,6 @@ export default function Home() {
       filtered = books.filter((book) => book.category === selectedCategory)
     }
 
-    // مرتب‌سازی
     if (sortBy === "price-low") {
       filtered = [...filtered].sort((a, b) => a.price - b.price)
     } else if (sortBy === "price-high") {
@@ -111,19 +117,20 @@ export default function Home() {
     return filtered
   }, [selectedCategory, sortBy])
 
+  const groupsToRender = selectedCategory === "all"
+    ? categoryGroups
+    : categoryGroups.filter((g) => g.key === selectedCategory)
+
   return (
     <main className="min-h-screen bg-background">
       <Header />
-      <CategoryMenu />
-
-      {/* بخش برجسته */}
-      <FeaturedSection />
+      <CategoryMenu selectedCategory={selectedCategory} onSelect={setSelectedCategory} />
 
       {/* فیلتر و مرتب‌سازی */}
       <section className="max-w-7xl mx-auto px-4 py-6 border-b border-border">
         <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
           <div>
-            <p className="text-sm text-muted-foreground">نمایش {filteredBooks.length} کتاب</p>
+            <p className="text-sm text-muted-foreground">{selectedCategory === "all" ? "مرور دسته‌ها" : `نمایش ${filteredBooks.length} کتاب`}</p>
           </div>
 
           <div className="flex flex-col md:flex-row gap-4 w-full md:w-auto">
@@ -142,15 +149,47 @@ export default function Home() {
         </div>
       </section>
 
-      {/* شبکه کتاب‌ها */}
-      <section className="max-w-7xl mx-auto px-4 py-12">
-        {filteredBooks.length > 0 ? (
-          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
-            {filteredBooks.map((book) => (
-              <BookCard key={book.id} {...book} />
-            ))}
-          </div>
-        ) : (
+      {/* گروه‌های افقی دسته‌بندی */}
+      <section className="max-w-7xl mx.auto px-4 py-8 space-y-12">
+        {groupsToRender.map((group) => {
+          const items = books.filter((b) => b.category === group.key)
+          return (
+            <div key={group.key}>
+              <div className="flex items-baseline justify-between mb-4">
+                <h2 className="text-xl md:text-2xl font-extrabold tracking-tight text-foreground">
+                  {group.title}
+                </h2>
+                <button
+                  type="button"
+                  onClick={() => setSelectedCategory(group.key)}
+                  className="text-xs md:text-sm text-primary hover:underline"
+                >
+                  مشاهده همه
+                </button>
+              </div>
+
+              <div className="relative">
+                {/* حذف گرادیان سمت راست برای جلوگیری از سفیدی */}
+                <div className="pointer-events-none absolute left-0 top-0 h-full w-8 bg-gradient-to-r from-background to-transparent" />
+
+                <div className="overflow-x-auto hide-scrollbar">
+                  <div className="flex gap-5 min-w-full snap-x snap-mandatory">
+                    {items.map((book) => (
+                      <div
+                        key={book.id}
+                        className="w-48 sm:w-56 md:w-64 flex-shrink-0 snap-start transition-transform duration-200 hover:-translate-y-1"
+                      >
+                        <BookCard {...book} />
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              </div>
+            </div>
+          )
+        })}
+
+        {selectedCategory !== "all" && groupsToRender.length === 0 && (
           <div className="text-center py-12">
             <p className="text-muted-foreground text-lg">هیچ کتابی یافت نشد</p>
           </div>
@@ -162,92 +201,51 @@ export default function Home() {
         <div className="max-w-7xl mx-auto px-4 py-12">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8 mb-8">
             <div>
-              <h4 className="font-bold mb-4">درباره ما</h4>
-              <ul className="space-y-2 text-sm text-muted-foreground">
-                <li>
-                  <a href="#" className="hover:text-primary">
-                    تاریخچه
-                  </a>
-                </li>
-                <li>
-                  <a href="#" className="hover:text-primary">
-                    تیم ما
-                  </a>
-                </li>
-                <li>
-                  <a href="#" className="hover:text-primary">
-                    وظایف
-                  </a>
-                </li>
+              <h3 className="font-semibold mb-3">مکتب شریف</h3>
+              <p className="text-sm text-muted-foreground leading-relaxed">
+                فروشگاه آنلاین کتاب با مجموعه‌ای از بهترین آثار ادبی، تاریخی و علمی.
+              </p>
+            </div>
+            <div>
+              <h3 className="font-semibold mb-3">دسته‌بندی‌ها</h3>
+              <ul className="space-y-2 text.sm text-muted-foreground">
+                <li>داستان و رمان</li>
+                <li>تاریخ و تمدن</li>
+                <li>علمی و تحقیقاتی</li>
+                <li>خودیاری و موفقیت</li>
+                <li>کودکان و نوجوانان</li>
               </ul>
             </div>
             <div>
-              <h4 className="font-bold mb-4">خدمات</h4>
+              <h3 className="font-semibold mb-3">راهنما</h3>
               <ul className="space-y-2 text-sm text-muted-foreground">
-                <li>
-                  <a href="#" className="hover:text-primary">
-                    ارسال سریع
-                  </a>
-                </li>
-                <li>
-                  <a href="#" className="hover:text-primary">
-                    بازگشت راحت
-                  </a>
-                </li>
-                <li>
-                  <a href="#" className="hover:text-primary">
-                    ضمانت
-                  </a>
-                </li>
+                <li>سوالات متداول</li>
+                <li>قوانین و مقررات</li>
+                <li>حریم خصوصی</li>
               </ul>
             </div>
             <div>
-              <h4 className="font-bold mb-4">تماس با ما</h4>
+              <h3 className="font-semibold mb-3">ارتباط با ما</h3>
               <ul className="space-y-2 text-sm text-muted-foreground">
-                <li>
-                  <a href="#" className="hover:text-primary">
-                    تلفن
-                  </a>
-                </li>
-                <li>
-                  <a href="#" className="hover:text-primary">
-                    ایمیل
-                  </a>
-                </li>
-                <li>
-                  <a href="#" className="hover:text-primary">
-                    آدرس
-                  </a>
-                </li>
-              </ul>
-            </div>
-            <div>
-              <h4 className="font-bold mb-4">شبکه‌های اجتماعی</h4>
-              <ul className="space-y-2 text-sm text-muted-foreground">
-                <li>
-                  <a href="#" className="hover:text-primary">
-                    اینستاگرام
-                  </a>
-                </li>
-                <li>
-                  <a href="#" className="hover:text-primary">
-                    توتر
-                  </a>
-                </li>
-                <li>
-                  <a href="#" className="hover:text-primary">
-                    فیس‌بوک
-                  </a>
-                </li>
+                <li>ایمیل: support@maktebsharif.ir</li>
+                <li>تلفن: 021-12345678</li>
+                <li>آدرس: تهران، خیابان مثال، پلاک ۱۲۳</li>
               </ul>
             </div>
           </div>
-
-          <div className="border-t border-border pt-8 text-center text-sm text-muted-foreground">
-            <p>© ۱۴۰۳ کتاب‌خانه. تمام حقوق محفوظ است.</p>
-          </div>
+          <div className="text-center text-xs text-muted-foreground">© {new Date().getFullYear()} مکتب شریف</div>
         </div>
       </footer>
+
+      <style jsx>{`
+        .hide-scrollbar {
+          -ms-overflow-style: none;
+          scrollbar-width: none;
+        }
+        .hide-scrollbar::-webkit-scrollbar {
+          display: none;
+        }
+      `}</style>
     </main>
   )
 }

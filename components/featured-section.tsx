@@ -11,9 +11,9 @@ export function FeaturedSection() {
 
         {/* متن */}
         <div className="space-y-4">
-          <h2 className="text-3xl md:text-4xl font-bold text-foreground">داستان‌های انتخابی برای شما</h2>
+          <h2 className="text-3xl md:text-4xl font-bold text-foreground">کتاب‌های پرفروش و منتخب</h2>
           <p className="text-muted-foreground leading-relaxed">
-            بهترین نویسندگان ایران و جهان در یک جا. کتاب‌های برگزیده‌شده با دقت برای علاقه‌مندان به ادبیات و فرهنگ.
+            بهترین کتاب‌های روز از نویسندگان برتر ایران و جهان. مجموعه‌ای از آثار برگزیده برای علاقه‌مندان به ادبیات، تاریخ و فرهنگ.
           </p>
           <div className="pt-4">
             <button className="bg-primary text-primary-foreground px-8 py-3 rounded-lg font-semibold hover:bg-primary/90 transition-colors">

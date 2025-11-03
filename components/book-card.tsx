@@ -32,14 +32,15 @@ export function BookCard({ id, title, author, price, image, rating, reviews }: B
 
   return (
     <Link href={`/book/${id}`}>
-      <div className="bg-card rounded-lg overflow-hidden border border-border hover:border-primary hover:shadow-lg transition-all duration-300 group cursor-pointer h-full flex flex-col">
+      <div className="relative bg-card rounded-xl overflow-hidden border border-border transition-all duration-300 group cursor-pointer h-full flex flex-col hover:shadow-lg">
+
         {/* تصویر کتاب */}
         <div className="relative w-full aspect-[3/4] bg-muted overflow-hidden">
           <Image
             src={image || "/placeholder.svg"}
             alt={title}
             fill
-            className="object-cover group-hover:scale-105 transition-transform duration-300"
+            className="object-cover transition-transform duration-300"
           />
           <div className="absolute top-2 right-2 bg-accent text-accent-foreground px-2 py-1 rounded text-xs font-semibold">
             {discount}% تخفیف
