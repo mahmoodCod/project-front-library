@@ -56,14 +56,14 @@ export function Header() {
               <span>👤</span>
               <span>ورود</span>
             </Link>
-            <Button variant="ghost" className="relative px-3 py-2 rounded-lg hover:bg-muted">
+            <Link href="/cart" className="relative px-3 py-2 rounded-lg hover:bg-muted">
               <span>🛒</span>
               {cartCount > 0 && (
                 <span className="absolute -top-2 -right-2 bg-accent text-accent-foreground rounded-full w-5 h-5 flex items-center justify-center text-xs font-bold">
                   {cartCount}
                 </span>
               )}
-            </Button>
+            </Link>
           </div>
         </div>
 
@@ -77,14 +77,14 @@ export function Header() {
           </Link>
 
           <div className="flex items-center gap-2">
-            <Button variant="ghost" size="sm" className="relative">
+            <Link href="/cart" className="relative px-2 py-1 rounded-lg hover:bg-muted">
               <span>🛒</span>
               {cartCount > 0 && (
                 <span className="absolute -top-2 -right-2 bg-accent text-accent-foreground rounded-full w-4 h-4 flex items-center justify-center text-xs font-bold">
                   {cartCount}
                 </span>
               )}
-            </Button>
+            </Link>
             <Button variant="ghost" size="sm" onClick={() => setIsMenuOpen(!isMenuOpen)}>
               {isMenuOpen ? "✕" : "☰"}
             </Button>

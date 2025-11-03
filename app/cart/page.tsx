@@ -41,6 +41,7 @@ export default function CartPage() {
 
   const [promoCode, setPromoCode] = useState("")
   const [discountPercent, setDiscountPercent] = useState(0)
+  const [promoMsg, setPromoMsg] = useState<{ type: 'ok' | 'err'; text: string } | null>(null)
 
   const handleQuantityChange = (id: string, newQuantity: number) => {
     if (newQuantity <= 0) {
@@ -55,12 +56,18 @@ export default function CartPage() {
   }
 
   const applyPromoCode = () => {
-    if (promoCode === "BOOKFEST2024") {
+    const code = promoCode.trim().toUpperCase()
+    if (code === "BOOKFEST2024") {
       setDiscountPercent(15)
-    } else if (promoCode === "WELCOME10") {
+      setPromoMsg({ type: 'ok', text: 'کد تخفیف ۱۵٪ با موفقیت اعمال شد' })
+    } else if (code === "WELCOME10") {
       setDiscountPercent(10)
+      setPromoMsg({ type: 'ok', text: 'کد تخفیف ۱۰٪ با موفقیت اعمال شد' })
+    } else if (!code) {
+      setPromoMsg({ type: 'err', text: 'کدی وارد نشده است' })
+      setDiscountPercent(0)
     } else {
-      alert("کد تخفیف معتبر نیست")
+      setPromoMsg({ type: 'err', text: 'کد تخفیف معتبر نیست' })
       setDiscountPercent(0)
     }
   }
@@ -107,7 +114,7 @@ export default function CartPage() {
           {/* لیست محصولات */}
           <div className="lg:col-span-2 space-y-4">
             {cartItems.map((item) => (
-              <div key={item.id} className="bg-card border border-border rounded-lg p-4 flex gap-4">
+              <div key={item.id} className="bg-card border border-border rounded-lg p-4 flex gap-4 hover:shadow-md transition-shadow">
                 {/* تصویر */}
                 <div className="relative w-24 h-32 flex-shrink-0 bg-muted rounded">
                   <Image
@@ -135,21 +142,25 @@ export default function CartPage() {
                     </div>
 
                     {/* تعداد */}
+                  <div className="flex items-center gap-2">
                     <div className="flex items-center gap-2 border border-border rounded">
                       <button
                         onClick={() => handleQuantityChange(item.id, item.quantity - 1)}
-                        className="p-1 hover:bg-muted"
+                        className="px-2 py-1 hover:bg-muted"
+                        aria-label="کاهش تعداد"
                       >
                         <Minus className="w-4 h-4" />
                       </button>
                       <span className="px-3 py-1 font-medium min-w-8 text-center">{item.quantity}</span>
                       <button
                         onClick={() => handleQuantityChange(item.id, item.quantity + 1)}
-                        className="p-1 hover:bg-muted"
+                        className="px-2 py-1 hover:bg-muted"
+                        aria-label="افزایش تعداد"
                       >
                         <Plus className="w-4 h-4" />
                       </button>
                     </div>
+                  </div>
 
                     {/* حذف */}
                     <button
@@ -189,7 +200,11 @@ export default function CartPage() {
                     اعمال
                   </Button>
                 </div>
-                <p className="text-xs text-muted-foreground">کدهای نمونه: BOOKFEST2024، WELCOME10</p>
+                {promoMsg ? (
+                  <p className={`text-xs ${promoMsg.type === 'ok' ? 'text-green-600' : 'text-destructive'}`}>{promoMsg.text}</p>
+                ) : (
+                  <p className="text-xs text-muted-foreground">کدهای نمونه: BOOKFEST2024، WELCOME10</p>
+                )}
               </div>
 
               {/* حساب */}

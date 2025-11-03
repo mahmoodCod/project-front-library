@@ -18,3 +18,7 @@ Read more: https://nextjs.org/docs/app/api-reference/components/image#loading
 [00:10:49.379] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
 [00:11:46.474] Server  LOG      ✓ Compiled in 7.4s
 [00:14:03.907] Server  LOG      ✓ Compiled in 5.4s
+[00:16:08.752] Server  LOG      ✓ Compiled in 1667ms
+[00:17:06.827] Server  LOG      ✓ Compiled in 2.1s
+[00:17:21.236] Server  LOG      ○ Compiling /cart ...
+[00:18:30.856] Server  LOG      ○ Compiling /checkout ...
