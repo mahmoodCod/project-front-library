@@ -4,6 +4,30 @@
       "static/media/f1d25eabcf1db66d-s.p.c041a43b.woff2",
       "static/media/ec8f59eafded4799-s.p.bd0c2d26.woff2"
     ],
+    "[project]/app/admin/books/[id]/edit/page": [
+      "static/media/f1d25eabcf1db66d-s.p.c041a43b.woff2",
+      "static/media/ec8f59eafded4799-s.p.bd0c2d26.woff2"
+    ],
+    "[project]/app/admin/books/new/page": [
+      "static/media/f1d25eabcf1db66d-s.p.c041a43b.woff2",
+      "static/media/ec8f59eafded4799-s.p.bd0c2d26.woff2"
+    ],
+    "[project]/app/admin/books/page": [
+      "static/media/f1d25eabcf1db66d-s.p.c041a43b.woff2",
+      "static/media/ec8f59eafded4799-s.p.bd0c2d26.woff2"
+    ],
+    "[project]/app/admin/links/page": [
+      "static/media/f1d25eabcf1db66d-s.p.c041a43b.woff2",
+      "static/media/ec8f59eafded4799-s.p.bd0c2d26.woff2"
+    ],
+    "[project]/app/admin/orders/page": [
+      "static/media/f1d25eabcf1db66d-s.p.c041a43b.woff2",
+      "static/media/ec8f59eafded4799-s.p.bd0c2d26.woff2"
+    ],
+    "[project]/app/admin/page": [
+      "static/media/f1d25eabcf1db66d-s.p.c041a43b.woff2",
+      "static/media/ec8f59eafded4799-s.p.bd0c2d26.woff2"
+    ],
     "[project]/app/auth/page": [
       "static/media/f1d25eabcf1db66d-s.p.c041a43b.woff2",
       "static/media/ec8f59eafded4799-s.p.bd0c2d26.woff2"

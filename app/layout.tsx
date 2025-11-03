@@ -4,6 +4,7 @@ import { Vazirmatn } from "next/font/google"
 import "./globals.css"
 import { CartProvider } from "@/components/cart-provider"
 import { Footer } from "@/components/footer"
+import { AuthProvider } from "@/components/auth-provider"
 
 const vazirmatn = Vazirmatn({ subsets: ["arabic", "latin"] })
 
@@ -19,16 +20,18 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html lang="fa" dir="rtl">
-      <body className={`${vazirmatn.className} font-sans antialiased min-h-screen`}> 
-        <CartProvider>
-          <div className="min-h-screen flex flex-col">
-            <div className="flex-1">
-              {children}
+    <html lang="فا" dir="rtl">
+      <body className={`${vazirmatn.className} font-sans antialiased min-h-screen`}>
+        <AuthProvider>
+          <CartProvider>
+            <div className="min-h-screen flex flex-col">
+              <div className="flex-1">
+                {children}
+              </div>
+              <Footer />
             </div>
-            <Footer />
-          </div>
-        </CartProvider>
+          </CartProvider>
+        </AuthProvider>
       </body>
     </html>
   )

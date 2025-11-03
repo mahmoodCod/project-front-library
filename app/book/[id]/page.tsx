@@ -6,41 +6,32 @@ import { Star, ShoppingCart, Heart, Share2, Check } from "lucide-react"
 import { Header } from "@/components/header"
 import { Button } from "@/components/ui/button"
 import { useCart } from "@/components/cart-provider"
+import { getBook } from "@/lib/books-store"
+import type { Book } from "@/lib/books-store"
 
-// نمونه داده برای کتاب
-const books = {
-  "1": {
-    id: "1",
-    title: "پدر",
-    author: "میخائیل بولگاکوف",
-    price: 89000,
-    discountedPrice: 71200,
-    image: "/book-cover-1.png",
-    rating: 4,
-    reviews: 234,
-    description:
-      "پدر یکی از بهترین آثار ادبی جهان است که داستان رابطه پیچیده بین پدر و فرزند را به تصویر می‌کشد. این کتاب مجموعه‌ای از احساسات عمیق، درام‌های خانوادگی و فلسفه زندگی است.",
-    publisher: "انتشارات افق",
-    publishYear: 1384,
-    pages: 320,
-    language: "فارسی",
-    isbn: "978-964-6436-12-5",
-    category: "داستان و رمان",
-    features: ["ترجمه عالی و دقیق", "چاپ لوکس و زیبا", "جلد سخت و دوام‌دار", "فهرست و پی‌نویس‌های مفید"],
-    relatedBooks: [2, 3, 4],
-    inStock: true,
-    stockCount: 15,
-  },
+const categoryLabels: Record<string, string> = {
+  fiction: "داستان و رمان",
+  history: "تاریخ و تمدن",
+  science: "علمی و تحقیقاتی",
+  "self-help": "خودیاری و موفقیت",
+  kids: "کودکان و نوجوانان",
 }
 
 export default function BookPage({ params }: { params: Promise<{ id: string }> }) {
   const { id } = usePromise(params)
-  const book = books[id as keyof typeof books]
+  const [book, setBook] = useState<Book | null>(null)
+  const [loading, setLoading] = useState(true)
   const [quantity, setQuantity] = useState(1)
   const [isFavorite, setIsFavorite] = useState(false)
   const [isAdded, setIsAdded] = useState(false)
   const { addItem } = useCart()
   const [isZoomOpen, setIsZoomOpen] = useState(false)
+
+  useEffect(() => {
+    const found = getBook(id)
+    setBook(found)
+    setLoading(false)
+  }, [id])
 
   useEffect(() => {
     function onKeyDown(e: KeyboardEvent) {
@@ -49,6 +40,17 @@ export default function BookPage({ params }: { params: Promise<{ id: string }> }
     window.addEventListener("keydown", onKeyDown)
     return () => window.removeEventListener("keydown", onKeyDown)
   }, [])
+
+  if (loading) {
+    return (
+      <main>
+        <Header />
+        <div className="max-w-7xl mx-auto px-4 py-12 text-center">
+          <p className="text-muted-foreground">در حال بارگذاری...</p>
+        </div>
+      </main>
+    )
+  }
 
   if (!book) {
     return (
@@ -219,7 +221,7 @@ export default function BookPage({ params }: { params: Promise<{ id: string }> }
                   <div>
                     <h3 className="font-semibold mb-3 md:mb-4 text-sm md:text-base">ویژگی‌های کتاب:</h3>
                     <ul className="space-y-2">
-                      {book.features.map((feature, idx) => (
+                      {(book.features || ["ترجمه عالی و دقیق", "چاپ لوکس و زیبا", "جلد سخت و دوام‌دار"]).map((feature, idx) => (
                         <li key={idx} className="flex items-start gap-2 text-xs md:text-sm">
                           <span className="text-primary mt-0.5">✓</span>
                           <span className="leading-relaxed">{feature}</span>
@@ -234,23 +236,23 @@ export default function BookPage({ params }: { params: Promise<{ id: string }> }
                     <ul className="space-y-2 md:space-y-3 text-xs md:text-sm">
                       <li className="flex justify-between items-center gap-2">
                         <span className="text-muted-foreground whitespace-nowrap">انتشارات:</span>
-                        <span className="text-right">{book.publisher}</span>
+                        <span className="text-right">{book.publisher || "نامشخص"}</span>
                       </li>
                       <li className="flex justify-between items-center gap-2">
                         <span className="text-muted-foreground whitespace-nowrap">سال:</span>
-                        <span>{book.publishYear}</span>
+                        <span>{book.publishYear || "نامشخص"}</span>
                       </li>
                       <li className="flex justify-between items-center gap-2">
                         <span className="text-muted-foreground whitespace-nowrap">تعداد صفحات:</span>
-                        <span>{book.pages}</span>
+                        <span>{book.pages || "نامشخص"}</span>
                       </li>
                       <li className="flex justify-between items-center gap-2">
                         <span className="text-muted-foreground whitespace-nowrap">زبان:</span>
-                        <span>{book.language}</span>
+                        <span>{book.language || "فارسی"}</span>
                       </li>
                       <li className="flex justify-between items-center gap-2">
                         <span className="text-muted-foreground whitespace-nowrap">ISBN:</span>
-                        <span className="text-[10px] md:text-xs text-right break-all">{book.isbn}</span>
+                        <span className="text-[10px] md:text-xs text-right break-all">{book.isbn || "نامشخص"}</span>
                       </li>
                     </ul>
                   </div>
@@ -263,10 +265,12 @@ export default function BookPage({ params }: { params: Promise<{ id: string }> }
         {/* اطلاعات تفصیلی کتاب */}
         <div className="mt-12 space-y-6">
           {/* توضیح کتاب */}
-          <div className="bg-card border border-border p-4 md:p-6 rounded-lg">
-            <h2 className="text-xl md:text-2xl font-bold mb-4">درباره این کتاب</h2>
-            <p className="text-sm md:text-base text-muted-foreground leading-relaxed">{book.description}</p>
-          </div>
+          {book.description && (
+            <div className="bg-card border border-border p-4 md:p-6 rounded-lg">
+              <h2 className="text-xl md:text-2xl font-bold mb-4">درباره این کتاب</h2>
+              <p className="text-sm md:text-base text-muted-foreground leading-relaxed">{book.description}</p>
+            </div>
+          )}
 
           {/* نقد و بررسی */}
           <div className="bg-card border border-border p-4 md:p-6 rounded-lg">
@@ -300,14 +304,14 @@ export default function BookPage({ params }: { params: Promise<{ id: string }> }
       {/* لایت‌باکس تصویر */}
       {isZoomOpen && (
         <div
-          className="fixed inset-0 z-[60] bg-black/80 backdrop-blur-sm flex items-center justify-center p-4"
+          className="fixed inset-0 z-60 bg-black/80 backdrop-blur-sm flex items-center justify-center p-4"
           onClick={() => setIsZoomOpen(false)}
         >
           <div className="relative max-w-full max-h-full" onClick={(e) => e.stopPropagation()}>
             <button
               onClick={() => setIsZoomOpen(false)}
               aria-label="بستن"
-              className="absolute -top-3 -left-3 md:top-0 md:left-0 translate-y-[-100%] md:translate-y-0 md:-translate-x-full rounded-full bg-white/90 text.black w-8 h-8 flex items-center justify-center shadow"
+              className="absolute -top-3 -left-3 md:top-0 md:left-0 -translate-y-full md:translate-y-0 md:-translate-x-full rounded-full bg-white/90 text.black w-8 h-8 flex items-center justify-center shadow"
             >
               ×
             </button>

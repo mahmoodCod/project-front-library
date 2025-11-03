@@ -8,6 +8,8 @@ import { Input } from "@/components/ui/input"
 import { Button } from "@/components/ui/button"
 import { useState } from "react"
 import Link from "next/link"
+import { useAuth } from "@/components/auth-provider"
+import { useRouter } from "next/navigation"
 
 export default function AuthPage() {
   // Local form states (demo only)
@@ -27,6 +29,9 @@ export default function AuthPage() {
     password?: string
     phone?: string
   }>({})
+
+  const { login } = useAuth()
+  const router = useRouter()
 
   function validateLogin(): boolean {
     const errs: typeof loginErrors = {}
@@ -91,6 +96,15 @@ export default function AuthPage() {
                       if (!loginData.password.trim()) errs.password = "رمز عبور الزامی است"
                       setLoginErrors(errs)
                       if (Object.keys(errs).length) return
+
+                      // try admin login
+                      const ok = login(loginData.username.trim(), loginData.password)
+                      if (ok) {
+                        router.push("/admin")
+                        return
+                      }
+                      // fallback: go home
+                      router.push("/")
                     }}
                     noValidate
                   >

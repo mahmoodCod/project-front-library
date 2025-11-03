@@ -5,24 +5,15 @@ import { useRouter } from "next/navigation"
 import Link from "next/link"
 import { Button } from "@/components/ui/button"
 import { useCart } from "@/components/cart-provider"
-
-// لیست کتاب‌ها برای جستجو
-const books = [
-  { id: "1", title: "پدر", author: "میخائیل بولگاکوف" },
-  { id: "2", title: "ما کیستیم", author: "علی شریعتی" },
-  { id: "3", title: "یک یادداشت معمولی", author: "دوستایفسکی" },
-  { id: "4", title: "عادت‌های موفق", author: "جیمز کلیئر" },
-  { id: "5", title: "علم دین", author: "امام غزالی" },
-  { id: "6", title: "شنل‌های شگفت‌انگیز", author: "نویسنده ناشناخته" },
-  { id: "7", title: "تاریخ ایران", author: "کاظم پایا" },
-  { id: "8", title: "سفر به ماه", author: "ژول ورن" },
-]
+import { useAuth } from "@/components/auth-provider"
+import { getBooks } from "@/lib/books-store"
 
 export function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
   const { count: cartCount } = useCart()
   const [query, setQuery] = useState("")
   const router = useRouter()
+  const { isAdmin } = useAuth()
 
   function submitSearch(e?: React.FormEvent<HTMLFormElement>) {
     if (e) e.preventDefault()
@@ -30,7 +21,8 @@ export function Header() {
     if (!q) return
     
     // جستجوی کتاب بر اساس عنوان یا نویسنده
-    const foundBook = books.find(
+    const allBooks = getBooks()
+    const foundBook = allBooks.find(
       (book) =>
         book.title.toLowerCase().includes(q.toLowerCase()) ||
         book.author.toLowerCase().includes(q.toLowerCase())
@@ -80,6 +72,11 @@ export function Header() {
 
           {/* بخش راست - ورود و سبد خرید */}
           <div className="flex items-center gap-4">
+            {isAdmin && (
+              <Link href="/admin" className="px-3 py-2 rounded-lg hover:bg-muted font-medium text-primary">
+                مدیریت
+              </Link>
+            )}
             <Link href="/auth" className="flex items-center gap-2 px-3 py-2 rounded-lg hover:bg-muted">
               <span>👤</span>
               <span>ورود</span>
@@ -105,6 +102,11 @@ export function Header() {
           </Link>
 
           <div className="flex items-center gap-2">
+            {isAdmin && (
+              <Link href="/admin" className="px-2 py-1 rounded-lg hover:bg-muted text-primary text-sm">
+                مدیریت
+              </Link>
+            )}
             <Link href="/cart" className="relative px-2 py-1 rounded-lg hover:bg-muted">
               <span>🛒</span>
               {cartCount > 0 && (
