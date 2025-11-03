@@ -14,7 +14,7 @@ export function Header() {
         {/* دسکتاپ هدر */}
         <div className="hidden md:flex items-center justify-between gap-8">
           {/* لوگو */}
-          <Link href="/" className="flex-shrink-0">
+          <Link href="/" className="shrink-0">
             <div className="flex items-center gap-2">
               <div className="w-10 h-10 bg-primary rounded-lg flex items-center justify-center">
                 <span className="text-primary-foreground font-bold text-lg">📚</span>

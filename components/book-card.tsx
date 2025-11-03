@@ -1,6 +1,6 @@
 "use client"
 
-import { useState } from "react"
+import { useMemo, useState } from "react"
 import Image from "next/image"
 import Link from "next/link"
 import { Button } from "@/components/ui/button"
@@ -17,6 +17,10 @@ interface BookCardProps {
 
 export function BookCard({ id, title, author, price, image, rating, reviews }: BookCardProps) {
   const [isAdded, setIsAdded] = useState(false)
+  const discount = useMemo(() => {
+    const sum = Array.from(id).reduce((acc, ch) => acc + ch.charCodeAt(0), 0)
+    return 10 + (sum % 21) // 10..30
+  }, [id])
 
   const handleAddToCart = () => {
     setIsAdded(true)
@@ -35,7 +39,7 @@ export function BookCard({ id, title, author, price, image, rating, reviews }: B
             className="object-cover group-hover:scale-105 transition-transform duration-300"
           />
           <div className="absolute top-2 right-2 bg-accent text-accent-foreground px-2 py-1 rounded text-xs font-semibold">
-            {Math.floor(Math.random() * 30) + 10}% تخفیف
+            {discount}% تخفیف
           </div>
         </div>
 

@@ -130,6 +130,8 @@ export default function Home() {
             <select
               value={sortBy}
               onChange={(e) => setSortBy(e.target.value as any)}
+              aria-label="مرتب‌سازی بر اساس"
+              title="مرتب‌سازی کتاب‌ها"
               className="px-3 py-2 border border-border rounded-lg bg-background focus:outline-none focus:ring-2 focus:ring-primary text-sm"
             >
               <option value="popular">محبوب‌ترین</option>
