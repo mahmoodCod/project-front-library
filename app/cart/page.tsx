@@ -1,43 +1,15 @@
 "use client"
 
-import { useState } from "react"
+import { useMemo, useState } from "react"
 import Image from "next/image"
 import Link from "next/link"
 import { Trash2, Plus, Minus } from "lucide-react"
 import { Header } from "@/components/header"
+import { useCart } from "@/components/cart-provider"
 import { Button } from "@/components/ui/button"
 
-interface CartItem {
-  id: string
-  title: string
-  author: string
-  price: number
-  discountedPrice: number
-  image: string
-  quantity: number
-}
-
 export default function CartPage() {
-  const [cartItems, setCartItems] = useState<CartItem[]>([
-    {
-      id: "1",
-      title: "پدر",
-      author: "میخائیل بولگاکوف",
-      price: 89000,
-      discountedPrice: 71200,
-      image: "/book-cover-1.png",
-      quantity: 1,
-    },
-    {
-      id: "2",
-      title: "ما کیستیم",
-      author: "علی شریعتی",
-      price: 75000,
-      discountedPrice: 67500,
-      image: "/book-cover-2.jpg",
-      quantity: 2,
-    },
-  ])
+  const { items: cartItems, setQuantity, removeItem } = useCart()
 
   const [promoCode, setPromoCode] = useState("")
   const [discountPercent, setDiscountPercent] = useState(0)
@@ -48,11 +20,7 @@ export default function CartPage() {
       removeItem(id)
       return
     }
-    setCartItems(cartItems.map((item) => (item.id === id ? { ...item, quantity: newQuantity } : item)))
-  }
-
-  const removeItem = (id: string) => {
-    setCartItems(cartItems.filter((item) => item.id !== id))
+    setQuantity(id, newQuantity)
   }
 
   const applyPromoCode = () => {
@@ -72,7 +40,7 @@ export default function CartPage() {
     }
   }
 
-  const subtotal = cartItems.reduce((sum, item) => sum + item.discountedPrice * item.quantity, 0)
+  const subtotal = useMemo(() => cartItems.reduce((sum, item) => sum + item.discountedPrice * item.quantity, 0), [cartItems])
   const discount = Math.floor(subtotal * (discountPercent / 100))
   const shippingCost = subtotal > 500000 ? 0 : 15000
   const total = subtotal - discount + shippingCost

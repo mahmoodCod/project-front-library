@@ -4,14 +4,15 @@ import { useState } from "react"
 import { useRouter } from "next/navigation"
 import Link from "next/link"
 import { Button } from "@/components/ui/button"
+import { useCart } from "@/components/cart-provider"
 
 export function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
-  const [cartCount] = useState(3)
+  const { count: cartCount } = useCart()
   const [query, setQuery] = useState("")
   const router = useRouter()
 
-  function submitSearch(e?: React.FormEvent) {
+  function submitSearch(e?: React.FormEvent<HTMLFormElement>) {
     if (e) e.preventDefault()
     const q = query.trim()
     if (!q) return

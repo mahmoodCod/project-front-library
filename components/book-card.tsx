@@ -4,6 +4,7 @@ import { useMemo, useState } from "react"
 import Image from "next/image"
 import Link from "next/link"
 import { Button } from "@/components/ui/button"
+import { useCart } from "@/components/cart-provider"
 
 interface BookCardProps {
   id: string
@@ -17,12 +18,14 @@ interface BookCardProps {
 
 export function BookCard({ id, title, author, price, image, rating, reviews }: BookCardProps) {
   const [isAdded, setIsAdded] = useState(false)
+  const { addItem } = useCart()
   const discount = useMemo(() => {
     const sum = Array.from(id).reduce((acc, ch) => acc + ch.charCodeAt(0), 0)
     return 10 + (sum % 21) // 10..30
   }, [id])
 
   const handleAddToCart = () => {
+    addItem({ id, title, author, price, discountedPrice: Math.floor(price * 0.9), image })
     setIsAdded(true)
     setTimeout(() => setIsAdded(false), 2000)
   }

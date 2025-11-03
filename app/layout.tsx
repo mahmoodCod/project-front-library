@@ -2,6 +2,7 @@ import type React from "react"
 import type { Metadata } from "next"
 import { Vazirmatn } from "next/font/google"
 import "./globals.css"
+import { CartProvider } from "@/components/cart-provider"
 
 const vazirmatn = Vazirmatn({ subsets: ["arabic", "latin"] })
 
@@ -18,7 +19,11 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="fa" dir="rtl">
-      <body className={`${vazirmatn.className} font-sans antialiased`}>{children}</body>
+      <body className={`${vazirmatn.className} font-sans antialiased`}>
+        <CartProvider>
+          {children}
+        </CartProvider>
+      </body>
     </html>
   )
 }
