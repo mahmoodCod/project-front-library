@@ -1,12 +1,6 @@
 {
-  "/_not-found/page": "app/_not-found/page.js",
-  "/admin/books/[id]/edit/page": "app/admin/books/[id]/edit/page.js",
-  "/admin/books/new/page": "app/admin/books/new/page.js",
   "/admin/books/page": "app/admin/books/page.js",
-  "/admin/customers/[id]/page": "app/admin/customers/[id]/page.js",
   "/admin/customers/page": "app/admin/customers/page.js",
-  "/admin/links/[id]/edit/page": "app/admin/links/[id]/edit/page.js",
-  "/admin/links/new/page": "app/admin/links/new/page.js",
   "/admin/links/page": "app/admin/links/page.js",
   "/admin/orders/[id]/page": "app/admin/orders/[id]/page.js",
   "/admin/orders/page": "app/admin/orders/page.js",
@@ -14,8 +8,6 @@
   "/admin/settings/page": "app/admin/settings/page.js",
   "/auth/page": "app/auth/page.js",
   "/book/[id]/page": "app/book/[id]/page.js",
-  "/cart/page": "app/cart/page.js",
-  "/checkout/page": "app/checkout/page.js",
   "/page": "app/page.js",
   "/profile/page": "app/profile/page.js",
   "/search/page": "app/search/page.js"

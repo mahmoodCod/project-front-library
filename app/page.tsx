@@ -24,6 +24,26 @@ export default function Home() {
     setBooks(getBooks())
   }, [])
 
+  // تابع مرتب‌سازی کتاب‌ها
+  const sortBooks = (booksToSort: Book[]): Book[] => {
+    const sorted = [...booksToSort]
+    
+    if (sortBy === "price-low") {
+      return sorted.sort((a: Book, b: Book) => a.price - b.price)
+    } else if (sortBy === "price-high") {
+      return sorted.sort((a: Book, b: Book) => b.price - a.price)
+    } else if (sortBy === "popular") {
+      // محبوب‌ترین: بر اساس امتیاز و تعداد نظرات
+      return sorted.sort((a: Book, b: Book) => {
+        const scoreA = a.rating * 100 + a.reviews
+        const scoreB = b.rating * 100 + b.reviews
+        return scoreB - scoreA
+      })
+    }
+    
+    return sorted
+  }
+
   const filteredBooks = useMemo(() => {
     let filtered = books
 
@@ -31,13 +51,7 @@ export default function Home() {
       filtered = books.filter((book: Book) => book.category === selectedCategory)
     }
 
-    if (sortBy === "price-low") {
-      filtered = [...filtered].sort((a: Book, b: Book) => a.price - b.price)
-    } else if (sortBy === "price-high") {
-      filtered = [...filtered].sort((a: Book, b: Book) => b.price - a.price)
-    }
-
-    return filtered
+    return sortBooks(filtered)
   }, [selectedCategory, sortBy, books])
 
   const groupsToRender = selectedCategory === "all"
@@ -74,8 +88,9 @@ export default function Home() {
 
       {/* گروه‌های افقی دسته‌بندی */}
       <section className="max-w-7xl mx.auto px-4 py-8 space-y-12">
-        {groupsToRender.map((group) => {
-          const items = books.filter((b: Book) => b.category === group.key)
+        {selectedCategory === "all" ? (
+          groupsToRender.map((group) => {
+            const items = sortBooks(books.filter((b: Book) => b.category === group.key))
           return (
             <div key={group.key}>
               <div className="flex items-baseline justify-between mb-4">
@@ -118,12 +133,29 @@ export default function Home() {
               </div>
             </div>
           )
-        })}
-
-        {selectedCategory !== "all" && groupsToRender.length === 0 && (
-          <div className="text-center py-12">
-            <p className="text-muted-foreground text-lg">هیچ کتابی یافت نشد</p>
-          </div>
+        })
+        ) : (
+          // نمایش کتاب‌های فیلتر شده و مرتب شده برای دسته انتخاب شده
+          filteredBooks.length > 0 ? (
+            <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+              {filteredBooks.map((book) => (
+                <BookCard
+                  key={book.id}
+                  id={book.id}
+                  title={book.title}
+                  author={book.author}
+                  price={book.price}
+                  image={book.image}
+                  rating={book.rating}
+                  reviews={book.reviews}
+                />
+              ))}
+            </div>
+          ) : (
+            <div className="text-center py-12">
+              <p className="text-muted-foreground text-lg">هیچ کتابی یافت نشد</p>
+            </div>
+          )
         )}
       </section>
 

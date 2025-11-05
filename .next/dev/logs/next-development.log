@@ -1,519 +1,80 @@
-[00:00:02.292] Server  LOG      ✓ Ready in 1509ms
-[00:00:07.702] Server  LOG      ○ Compiling / ...
-[00:00:13.376] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
-[00:00:13.536] Browser WARN    Image with src "/featured-books-collection.jpg" was detected as the Largest Contentful Paint (LCP). Please add the `loading="eager"` property if this image is above the fold.
+[00:00:04.852] Server  LOG      ✓ Ready in 3.4s
+[00:01:08.236] Server  LOG      ○ Compiling / ...
+[00:01:58.535] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:02:01.513] Browser WARN    Image with src "/book-cover-1.png" was detected as the Largest Contentful Paint (LCP). Please add the `loading="eager"` property if this image is above the fold.
 Read more: https://nextjs.org/docs/app/api-reference/components/image#loading
-[00:01:58.988] Server  LOG      ✓ Compiled in 1005ms
-[00:05:01.045] Server  LOG      ✓ Compiled in 2.8s
-[00:05:14.046] Server  LOG      ✓ Compiled in 808ms
-[00:07:23.790] Server  LOG      ✓ Compiled in 4.7s
-[00:10:07.986] Server  LOG      ✓ Compiled in 5.1s
-[00:10:25.494] Server  LOG      ○ Compiling /_not-found/page ...
-[00:10:31.736] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
-[00:10:35.630] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
-[00:10:40.454] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
-[00:10:40.587] Browser WARN    Image with src "/featured-books-collection.jpg" was detected as the Largest Contentful Paint (LCP). Please add the `loading="eager"` property if this image is above the fold.
-Read more: https://nextjs.org/docs/app/api-reference/components/image#loading
-[00:10:47.240] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
-[00:10:49.379] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
-[00:11:46.474] Server  LOG      ✓ Compiled in 7.4s
-[00:14:03.907] Server  LOG      ✓ Compiled in 5.4s
-[00:16:08.752] Server  LOG      ✓ Compiled in 1667ms
-[00:17:06.827] Server  LOG      ✓ Compiled in 2.1s
-[00:17:21.236] Server  LOG      ○ Compiling /cart ...
-[00:18:30.856] Server  LOG      ○ Compiling /checkout ...
-[00:22:01.869] Server  LOG      ✓ Compiled in 2.4s
-[00:22:05.177] Browser ERROR   Failed to fetch RSC payload for http://localhost:3000/. Falling back to browser navigation. {}
-[00:22:07.809] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
-[00:22:08.040] Browser WARN    Image with src "/featured-books-collection.jpg" was detected as the Largest Contentful Paint (LCP). Please add the `loading="eager"` property if this image is above the fold.
-Read more: https://nextjs.org/docs/app/api-reference/components/image#loading
-[00:22:28.778] Server  LOG      ✓ Compiled in 296ms
-[00:23:25.692] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
-[00:23:25.882] Browser WARN    Image with src "/featured-books-collection.jpg" was detected as the Largest Contentful Paint (LCP). Please add the `loading="eager"` property if this image is above the fold.
-Read more: https://nextjs.org/docs/app/api-reference/components/image#loading
-[00:25:40.009] Server  LOG      ○ Compiling /book/[id] ...
-[00:25:46.929] Browser ERROR   A param property was accessed directly with `params.id`. `params` is a Promise and must be unwrapped with `React.use()` before accessing its properties. Learn more: https://nextjs.org/docs/messages/sync-dynamic-apis
-[00:25:46.930] Browser ERROR   A param property was accessed directly with `params.id`. `params` is a Promise and must be unwrapped with `React.use()` before accessing its properties. Learn more: https://nextjs.org/docs/messages/sync-dynamic-apis
-[00:26:21.821] Server  LOG      ✓ Compiled in 1033ms
-[01:08:19.095] Server  LOG      ✓ Compiled in 4.5s
-[01:09:11.219] Server  LOG      ✓ Compiled in 5.7s
-[01:09:30.286] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
-[01:09:33.068] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
-[01:09:33.217] Browser WARN    Image with src "/book-cover-1.png" was detected as the Largest Contentful Paint (LCP). Please add the `loading="eager"` property if this image is above the fold.
-Read more: https://nextjs.org/docs/app/api-reference/components/image#loading
-[01:12:46.162] Server  LOG      ✓ Compiled in 1125ms
-[01:13:06.184] Server  LOG      ✓ Compiled in 713ms
-[01:15:38.498] Server  LOG      ✓ Compiled in 3.5s
-[01:17:29.946] Server  LOG      ✓ Compiled in 1691ms
-[01:17:56.149] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
-[01:17:56.426] Browser WARN    Image with src "/book-cover-1.png" was detected as the Largest Contentful Paint (LCP). Please add the `loading="eager"` property if this image is above the fold.
-Read more: https://nextjs.org/docs/app/api-reference/components/image#loading
-[01:19:31.491] Server  LOG      ✓ Compiled in 3s
-[01:20:33.764] Server  LOG      ✓ Compiled in 3.2s
-[01:22:50.818] Server  LOG      ✓ Compiled in 3.3s
-[01:25:35.650] Server  LOG      ✓ Compiled in 5.3s
-[01:26:16.497] Server  LOG      ✓ Compiled in 1522ms
-[01:26:17.385] Server  LOG      ✓ Compiled in 162ms
-[01:32:55.202] Server  LOG      ✓ Compiled in 1785ms
-[01:36:29.893] Server  LOG      ✓ Compiled in 1780ms
-[01:36:44.954] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
-[01:36:45.204] Browser WARN    Image with src "/book-cover-1.png" was detected as the Largest Contentful Paint (LCP). Please add the `loading="eager"` property if this image is above the fold.
-Read more: https://nextjs.org/docs/app/api-reference/components/image#loading
-[01:37:43.742] Server  LOG      ✓ Compiled in 2s
-[01:37:56.848] Server  LOG      ✓ Compiled in 155ms
-[01:39:27.228] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
-[01:39:27.403] Browser WARN    Image with src "/book-cover-1.png" was detected as the Largest Contentful Paint (LCP). Please add the `loading="eager"` property if this image is above the fold.
-Read more: https://nextjs.org/docs/app/api-reference/components/image#loading
-[01:40:49.854] Server  LOG      ✓ Compiled in 2.4s
-[01:44:36.428] Server  LOG      ✓ Compiled in 1978ms
-[01:45:02.191] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
-[01:45:04.285] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
-[01:45:04.554] Browser WARN    Image with src "/book-cover-1.png" was detected as the Largest Contentful Paint (LCP). Please add the `loading="eager"` property if this image is above the fold.
-Read more: https://nextjs.org/docs/app/api-reference/components/image#loading
-[01:47:15.796] Server  LOG      ✓ Compiled in 2.3s
-[01:47:47.191] Server  LOG      ✓ Compiled in 2.4s
-[01:57:54.586] Server  LOG      ✓ Compiled in 2.4s
-[01:57:56.608] Server  LOG      ✓ Compiled in 120ms
-[01:58:01.511] Server  LOG      ✓ Compiled in 413ms
-[01:58:06.073] Server  LOG      ✓ Compiled in 423ms
-[01:58:11.546] Server  LOG      ✓ Compiled in 89ms
-[01:58:14.846] Server  LOG      ✓ Compiled in 87ms
-[01:58:18.931] Server  LOG      ✓ Compiled in 101ms
-[01:59:18.534] Server  LOG      ✓ Compiled in 1659ms
-[02:00:04.414] Server  LOG      ✓ Compiled in 1270ms
-[02:01:09.158] Server  LOG      ✓ Compiled in 1298ms
-[02:02:08.147] Server  LOG      ✓ Compiled in 736ms
-[02:03:38.710] Server  LOG      ✓ Compiled in 924ms
-[02:05:34.394] Server  LOG      ✓ Compiled in 1148ms
-[02:08:15.645] Server  LOG      ✓ Compiled in 1684ms
-[02:09:52.916] Server  LOG      ✓ Compiled in 864ms
-[02:12:01.456] Server  LOG      ✓ Compiled in 727ms
-[02:12:18.047] Server  LOG      ✓ Compiled in 203ms
-[02:13:10.483] Server  LOG      ✓ Compiled in 2.7s
-[02:14:49.267] Server  LOG      ✓ Compiled in 2.4s
-[02:16:27.463] Server  LOG      ✓ Compiled in 2.7s
-[02:16:41.810] Server  LOG      ✓ Compiled in 394ms
-[02:17:41.911] Server  LOG      ✓ Compiled in 1110ms
-[02:18:04.146] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
-[02:18:04.307] Browser WARN    Image with src "/book-cover-1.png" was detected as the Largest Contentful Paint (LCP). Please add the `loading="eager"` property if this image is above the fold.
-Read more: https://nextjs.org/docs/app/api-reference/components/image#loading
-[02:19:33.914] Server  LOG      ✓ Compiled in 3.3s
-[02:19:39.075] Server  ERROR    ⨯ Error: Event handlers cannot be passed to Client Component props.
-  <form className=... onSubmit={function onSubmit} children=...>
-                               ^^^^^^^^^^^^^^^^^^^
-If you need interactivity, consider converting part of this to a Client Component.
-[02:19:41.183] Server  ERROR    ⨯ Error: Event handlers cannot be passed to Client Component props.
-  <form className=... onSubmit={function onSubmit} children=...>
-                               ^^^^^^^^^^^^^^^^^^^
-If you need interactivity, consider converting part of this to a Client Component.
-[02:19:45.670] Server  ERROR    ⨯ Error: Event handlers cannot be passed to Client Component props.
-  <form className=... onSubmit={function onSubmit} children=...>
-                               ^^^^^^^^^^^^^^^^^^^
-If you need interactivity, consider converting part of this to a Client Component.
-[02:19:46.923] Server  ERROR    ⨯ Error: Event handlers cannot be passed to Client Component props.
-  <form className=... onSubmit={function onSubmit} children=...>
-                               ^^^^^^^^^^^^^^^^^^^
-If you need interactivity, consider converting part of this to a Client Component.
-[02:19:47.456] Server  ERROR    ⨯ Error: Event handlers cannot be passed to Client Component props.
-  <form className=... onSubmit={function onSubmit} children=...>
-                               ^^^^^^^^^^^^^^^^^^^
-If you need interactivity, consider converting part of this to a Client Component.
-[02:19:47.873] Server  ERROR    ⨯ Error: Event handlers cannot be passed to Client Component props.
-  <form className=... onSubmit={function onSubmit} children=...>
-                               ^^^^^^^^^^^^^^^^^^^
-If you need interactivity, consider converting part of this to a Client Component.
-[02:19:48.254] Server  ERROR    ⨯ Error: Event handlers cannot be passed to Client Component props.
-  <form className=... onSubmit={function onSubmit} children=...>
-                               ^^^^^^^^^^^^^^^^^^^
-If you need interactivity, consider converting part of this to a Client Component.
-[02:19:49.021] Browser ERROR   uncaughtError: Error: Event handlers cannot be passed to Client Component props.
-  <form className=... onSubmit={function onSubmit} children=...>
-                               ^^^^^^^^^^^^^^^^^^^
-If you need interactivity, consider converting part of this to a Client Component.
-[02:21:27.627] Server  LOG      ✓ Compiled in 4.6s
-[02:21:32.905] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
-[02:21:36.095] Browser WARN    Image with src "/book-cover-1.png" was detected as the Largest Contentful Paint (LCP). Please add the `loading="eager"` property if this image is above the fold.
-Read more: https://nextjs.org/docs/app/api-reference/components/image#loading
-[02:22:17.999] Server  LOG      ✓ Compiled in 2.6s
-[02:23:12.568] Server  LOG      ✓ Compiled in 1650ms
-[02:24:04.904] Server  LOG      ✓ Compiled in 1373ms
-[02:25:22.795] Server  LOG      ✓ Compiled in 1609ms
-[02:26:07.284] Server  LOG      ✓ Compiled in 1130ms
-[02:27:23.920] Server  LOG      ✓ Compiled in 1954ms
-[02:28:56.737] Server  LOG      ✓ Compiled in 1520ms
-[02:29:39.840] Server  LOG      ✓ Compiled in 865ms
-[02:30:05.925] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
-[02:30:05.926] Browser WARN    Image with src "/book-cover-1.png" was detected as the Largest Contentful Paint (LCP). Please add the `loading="eager"` property if this image is above the fold.
-Read more: https://nextjs.org/docs/app/api-reference/components/image#loading
-[02:31:46.238] Server  LOG      ✓ Compiled in 1838ms
-[02:33:38.303] Server  LOG      ✓ Compiled in 913ms
-[05:22:07.640] Server  LOG      ✓ Compiled in 3.6s
-[05:22:37.940] Server  LOG      ✓ Compiled in 789ms
-[05:28:46.922] Browser ERROR   Failed to fetch RSC payload for http://localhost:3000/. Falling back to browser navigation. {}
-[05:28:53.749] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
-[05:28:53.749] Browser WARN    Image with src "/book-cover-1.png" was detected as the Largest Contentful Paint (LCP). Please add the `loading="eager"` property if this image is above the fold.
-Read more: https://nextjs.org/docs/app/api-reference/components/image#loading
-[05:29:36.149] Server  LOG      ✓ Compiled in 5.6s
-[05:30:43.733] Server  LOG      ○ Compiling /admin ...
-[05:31:35.798] Server  LOG      ○ Compiling /admin/books ...
-[05:32:00.379] Server  LOG      ○ Compiling /admin/orders ...
-[05:32:10.915] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
-[05:32:16.410] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
-[05:32:18.536] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
-[05:32:20.813] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
-[05:32:22.523] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
-[05:32:25.698] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
-[05:35:24.250] Server  LOG      ✓ Compiled in 9s
-[05:35:35.218] Browser ERROR   Failed to fetch RSC payload for http://localhost:3000/admin. Falling back to browser navigation. {}
-[05:35:38.853] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
-[05:35:57.635] Server  LOG      ✓ Compiled in 2.2s
-[05:36:00.054] Browser ERROR   Failed to fetch RSC payload for http://localhost:3000/admin. Falling back to browser navigation. {}
-[05:36:07.705] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
-[05:36:24.008] Server  LOG      ✓ Compiled in 8.2s
-[05:37:23.503] Server  LOG      ○ Compiling /admin/links ...
-[05:37:34.635] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
-[05:37:37.942] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
-[05:39:04.448] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
-[05:39:06.929] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
-[05:39:29.531] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
-[05:39:31.442] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
-[05:42:38.125] Server  LOG      ✓ Compiled in 1949ms
-[05:50:38.719] Server  LOG      ✓ Compiled in 1435ms
-[05:50:42.963] Server  LOG      ✓ Compiled in 1467ms
-[05:52:11.940] Server  LOG      ○ Compiling /admin/books/[id]/edit ...
-[05:53:47.314] Server  LOG      ○ Compiling /admin/books/new ...
-[06:03:51.358] Server  LOG      ✓ Compiled in 4.1s
-[06:04:26.565] Server  LOG      ✓ Compiled in 1224ms
-[06:05:01.780] Server  LOG      ○ Compiling /admin/orders/[id] ...
-[06:07:17.237] Server  LOG      ✓ Compiled in 3.5s
-[06:07:21.888] Server  LOG      ✓ Compiled in 622ms
-[06:10:23.942] Server  LOG      ✓ Compiled in 1647ms
-[06:10:40.685] Server  LOG      ✓ Compiled in 2.2s
-[06:11:48.128] Server  LOG      ○ Compiling /admin/links/[id]/edit ...
-[06:14:10.554] Server  LOG      ✓ Compiled in 2.3s
-[06:14:11.745] Server  LOG      ✓ Compiled in 125ms
-[06:14:33.550] Server  LOG      ✓ Compiled in 197ms
-[06:14:46.232] Server  LOG      ✓ Compiled in 327ms
-[06:15:58.563] Server  LOG      ✓ Compiled in 324ms
-[06:16:15.805] Server  LOG      ✓ Compiled in 161ms
-[06:17:11.865] Server  LOG      ✓ Compiled in 4.1s
-[06:17:22.755] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
-[06:17:23.824] Browser ERROR   uncaughtError: Error: Hydration failed because the server rendered text didn't match the client. As a result this tree will be regenerated on the client. This can happen if a SSR-ed Client Component used:
-
-- A server/client branch `if (typeof window !== 'undefined')`.
-- Variable input such as `Date.now()` or `Math.random()` which changes each time it's called.
-- Date formatting in a user's locale which doesn't match the server.
-- External changing data without sending a snapshot of it along with the HTML.
-- Invalid HTML tag nesting.
-
-It can also happen if the client has a browser extension installed which messes with the HTML before React loaded.
-
-https://react.dev/link/hydration-mismatch
-
-  ...
-    <RedirectErrorBoundary router={{...}}>
-      <InnerLayoutRouter url="/" tree={[...]} params={{}} cacheNode={{lazyData:null, ...}} segmentPath={[...]} ...>
-        <SegmentViewNode type="page" pagePath="page.tsx">
-          <SegmentTrieNode>
-          <ClientPageRoot Component={function Home} serverProvidedParams={{...}}>
-            <Home params={Promise} searchParams={Promise}>
-              <main className="jsx-8c1314...">
-                <Header>
-                  <header className="sticky top...">
-                    <div className="max-w-7xl ...">
-                      <div className="hidden md:...">
-                        <LinkComponent>
-                        <div>
-                        <div className="flex items...">
-                          <LinkComponent href="/admin" className="px-3 py-2 ...">
-                            <a
-+                             className="px-3 py-2 rounded-lg hover:bg-muted font-medium text-primary"
--                             className="flex items-center gap-2 px-3 py-2 rounded-lg hover:bg-muted"
-                              ref={function}
-                              onClick={function onClick}
-                              onMouseEnter={function onMouseEnter}
-                              onTouchStart={function onTouchStart}
-+                             href="/admin"
--                             href="/auth"
-                            >
-+                             مدیریت
--                             👤ورود
-                          ...
-                      ...
-                ...
-        ...
-      ...
-
-[06:17:35.244] Server  LOG      ✓ Compiled in 232ms
-[06:17:48.412] Browser WARN    Image with src "/book-cover-1.png" was detected as the Largest Contentful Paint (LCP). Please add the `loading="eager"` property if this image is above the fold.
-Read more: https://nextjs.org/docs/app/api-reference/components/image#loading
-[06:20:17.127] Server  LOG      ✓ Compiled in 2.1s
-[06:20:54.391] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
-[06:20:54.902] Browser ERROR   uncaughtError: Error: Hydration failed because the server rendered text didn't match the client. As a result this tree will be regenerated on the client. This can happen if a SSR-ed Client Component used:
-
-- A server/client branch `if (typeof window !== 'undefined')`.
-- Variable input such as `Date.now()` or `Math.random()` which changes each time it's called.
-- Date formatting in a user's locale which doesn't match the server.
-- External changing data without sending a snapshot of it along with the HTML.
-- Invalid HTML tag nesting.
-
-It can also happen if the client has a browser extension installed which messes with the HTML before React loaded.
-
-https://react.dev/link/hydration-mismatch
-
-  ...
-    <RedirectErrorBoundary router={{...}}>
-      <InnerLayoutRouter url="/" tree={[...]} params={{}} cacheNode={{lazyData:null, ...}} segmentPath={[...]} ...>
-        <SegmentViewNode type="page" pagePath="page.tsx">
-          <SegmentTrieNode>
-          <ClientPageRoot Component={function Home} serverProvidedParams={{...}}>
-            <Home params={Promise} searchParams={Promise}>
-              <main className="jsx-8c1314...">
-                <Header>
-                  <header className="sticky top...">
-                    <div className="max-w-7xl ...">
-                      <div className="hidden md:...">
-                        <LinkComponent>
-                        <div>
-                        <div className="flex items...">
-                          <LinkComponent href="/admin" className="px-3 py-2 ...">
-                            <a
-+                             className="px-3 py-2 rounded-lg hover:bg-muted font-medium text-primary"
--                             className="flex items-center gap-2 px-3 py-2 rounded-lg hover:bg-muted"
-                              ref={function}
-                              onClick={function onClick}
-                              onMouseEnter={function onMouseEnter}
-                              onTouchStart={function onTouchStart}
-+                             href="/admin"
--                             href="/auth"
-                            >
-+                             مدیریت
--                             👤ورود
-                          ...
-                      ...
-                ...
-        ...
-      ...
-
-[06:20:55.006] Browser WARN    Image with src "/book-cover-1.png" was detected as the Largest Contentful Paint (LCP). Please add the `loading="eager"` property if this image is above the fold.
-Read more: https://nextjs.org/docs/app/api-reference/components/image#loading
-[06:21:42.477] Server  LOG      ✓ Compiled in 1700ms
-[06:21:44.421] Server  LOG      ✓ Compiled in 125ms
-[06:21:48.145] Server  LOG      ✓ Compiled in 138ms
-[06:22:15.548] Server  LOG      ○ Compiling /cart ...
-[06:24:27.312] Server  LOG      ✓ Compiled in 3.4s
-[06:24:29.607] Server  LOG      ✓ Compiled in 140ms
-[06:30:36.795] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
-[06:31:04.547] Server  LOG      ○ Compiling /admin/links/new ...
-[06:31:32.953] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
-[06:31:35.148] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
-[06:34:14.929] Server  LOG      ○ Compiling /admin/customers ...
-[06:35:07.411] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
-[06:35:09.211] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
-[06:36:16.492] Server  LOG      ✓ Compiled in 4.3s
-[06:36:16.523] Browser ERROR   uncaughtError: ReferenceError: BarChart3 is not defined
-[06:36:16.554] Server  WARN     ⚠ Fast Refresh had to perform a full reload due to a runtime error.
-[06:36:18.997] Server  ERROR    ⨯ ReferenceError: BarChart3 is not defined
-[06:36:19.862] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
-[06:36:21.676] Server  LOG      ✓ Compiled in 207ms
-[06:36:47.382] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
-[06:36:50.040] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
-[06:38:58.231] Server  LOG      ✓ Compiled in 3.9s
-[06:41:20.250] Server  LOG      ○ Compiling /admin/settings ...
-[08:36:02.503] Browser WARN    ImmutableStateInvariantMiddleware took 45ms, which is more than the warning threshold of 32ms. 
-If your state or actions are very large, you may want to disable the middleware as it might cause too much of a slowdown in development mode. See https://redux-toolkit.js.org/api/getDefaultMiddleware for instructions.
-It is disabled in production builds, so you don't need to worry about that.
-[08:36:13.818] Server  LOG      ✓ Compiled in 8.7s
-[08:36:18.828] Browser ERROR   unhandledRejection: undefined
-[08:36:26.965] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
-[08:36:30.737] Server  LOG      ✓ Compiled in 2.3s
-[08:36:38.390] Server  LOG      ✓ Compiled in 307ms
-[08:36:42.589] Server  LOG      ✓ Compiled in 220ms
-[08:39:24.512] Server  LOG      ✓ Compiled in 18ms
-[08:43:42.207] Server  LOG      ✓ Compiled in 1476ms
-[08:44:53.068] Server  LOG      ✓ Compiled in 1949ms
-[08:46:05.069] Server  LOG      ✓ Compiled in 2.4s
-[08:47:05.041] Server  LOG      ✓ Compiled in 1152ms
-[08:47:08.268] Server  LOG      ✓ Compiled in 201ms
-[08:47:16.452] Server  LOG      ✓ Compiled in 135ms
-[08:50:33.328] Server  LOG      ✓ Compiled in 1954ms
-[08:50:41.586] Server  LOG      ✓ Compiled in 246ms
-[08:52:47.389] Server  LOG      ✓ Compiled in 1642ms
-[08:52:51.300] Server  LOG      ✓ Compiled in 195ms
-[08:52:56.018] Server  LOG      ✓ Compiled in 124ms
-[08:52:58.753] Server  LOG      ✓ Compiled in 121ms
-[08:53:06.826] Server  LOG      ✓ Compiled in 1118ms
-[08:54:37.507] Server  LOG      ✓ Compiled in 2.4s
-[08:54:58.636] Server  LOG      ✓ Compiled in 1833ms
-[08:57:41.661] Server  LOG      ✓ Compiled in 2.3s
-[08:57:46.274] Server  LOG      ✓ Compiled in 712ms
-[08:58:07.853] Server  LOG      ✓ Compiled in 605ms
-[08:59:17.593] Server  LOG      ✓ Compiled in 1084ms
-[08:59:26.038] Server  LOG      ✓ Compiled in 275ms
-[08:59:29.777] Server  LOG      ✓ Compiled in 132ms
-[08:59:32.780] Server  LOG      ✓ Compiled in 155ms
-[08:59:43.374] Server  LOG      ✓ Compiled in 1962ms
-[09:01:16.733] Server  LOG      ✓ Compiled in 1947ms
-[09:01:21.471] Server  LOG      ✓ Compiled in 189ms
-[09:01:58.560] Server  LOG      ✓ Compiled in 2.2s
-[09:02:04.263] Server  LOG      ✓ Compiled in 145ms
-[09:03:10.103] Server  LOG      ✓ Compiled in 2.3s
-[09:03:18.840] Server  LOG      ✓ Compiled in 299ms
-[09:03:22.197] Server  LOG      ✓ Compiled in 187ms
-[09:03:27.388] Server  LOG      ✓ Compiled in 588ms
-[09:03:46.821] Server  LOG      ✓ Compiled in 2s
-[09:09:34.032] Server  LOG      ✓ Compiled in 2.8s
-[09:09:52.614] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
-[09:11:05.146] Server  LOG      ✓ Compiled in 1367ms
-[09:12:27.305] Server  LOG      ✓ Compiled in 2.6s
-[09:13:37.504] Server  LOG      ✓ Compiled in 220ms
-[09:13:56.638] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
-[09:13:56.910] Browser WARN    Image with src "/book-cover-1.png" was detected as the Largest Contentful Paint (LCP). Please add the `loading="eager"` property if this image is above the fold.
-Read more: https://nextjs.org/docs/app/api-reference/components/image#loading
-[09:15:53.586] Server  LOG      ○ Compiling /profile ...
-[09:18:45.058] Server  LOG      ✓ Compiled in 3.6s
-[09:19:18.741] Server  LOG      ✓ Compiled in 1648ms
-[09:20:18.452] Server  LOG      ✓ Compiled in 1905ms
-[09:20:21.872] Browser ERROR   uncaughtError: ReferenceError: Footer is not defined
-[09:20:22.234] Server  LOG      ✓ Compiled in 184ms
-[09:20:22.359] Server  WARN     ⚠ Fast Refresh had to perform a full reload due to a runtime error.
-[09:20:28.962] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
-[09:20:29.333] Browser ERROR   uncaughtError: Error: Hydration failed because the server rendered HTML didn't match the client. As a result this tree will be regenerated on the client. This can happen if a SSR-ed Client Component used:
-
-- A server/client branch `if (typeof window !== 'undefined')`.
-- Variable input such as `Date.now()` or `Math.random()` which changes each time it's called.
-- Date formatting in a user's locale which doesn't match the server.
-- External changing data without sending a snapshot of it along with the HTML.
-- Invalid HTML tag nesting.
-
-It can also happen if the client has a browser extension installed which messes with the HTML before React loaded.
-
-https://react.dev/link/hydration-mismatch
-
-  ...
-    <RenderFromTemplateContext>
-      <ScrollAndFocusHandler segmentPath={[...]}>
-        <InnerScrollAndFocusHandler segmentPath={[...]} focusAndScrollRef={{apply:false, ...}}>
-          <ErrorBoundary errorComponent={undefined} errorStyles={undefined} errorScripts={undefined}>
-            <LoadingBoundary name="profile/" loading={null}>
-              <HTTPAccessFallbackBoundary notFound={undefined} forbidden={undefined} unauthorized={undefined}>
-                <RedirectBoundary>
-                  <RedirectErrorBoundary router={{...}}>
-                    <InnerLayoutRouter url="/profile" tree={[...]} params={{}} cacheNode={{lazyData:null, ...}} ...>
-                      <SegmentViewNode type="page" pagePath="profile/pa...">
-                        <SegmentTrieNode>
-                        <ClientPageRoot Component={function ProfilePage} serverProvidedParams={{...}}>
-                          <ProfilePage params={Promise} searchParams={Promise}>
-+                           <main className="min-h-screen bg-background flex flex-col">
--                           <Suspense>
-                      ...
-                    ...
-          ...
-
-[09:21:39.296] Server  LOG      ✓ Compiled in 3.3s
-[09:21:39.462] Browser ERROR   ./app/profile/page.tsx:255:9
+[00:06:02.175] Server  LOG      ✓ Compiled in 8s
+[00:06:02.597] Browser ERROR   ./app/page.tsx:136:11
 Parsing ecmascript source code failed
-  253 |           </Tabs>
-  254 |         </div>
-> 255 |       </div>
-      |         ^^^
-  256 |     </main>
-  257 |   )
-  258 | }
+  134 |             </div>
+  135 |           )
+> 136 |         })}
+      |           ^
+  137 |
+  138 |         {selectedCategory !== "all" && groupsToRender.length === 0 && (
+  139 |           <div className="text-center py-12">
 
-Expected '>', got 'div'
+Expected '</', got '}'
 
 Import traces:
   Client Component Browser:
-    ./app/profile/page.tsx [Client Component Browser]
-    ./app/profile/page.tsx [Server Component]
+    ./app/page.tsx [Client Component Browser]
+    ./app/page.tsx [Server Component]
 
   Client Component SSR:
-    ./app/profile/page.tsx [Client Component SSR]
-    ./app/profile/page.tsx [Server Component]
-[09:21:40.726] Server  LOG      ✓ Compiled in 885ms
-[09:23:08.587] Server  LOG      ✓ Compiled in 2.7s
-[09:23:21.939] Server  LOG      ✓ Compiled in 1932ms
-[09:23:29.546] Server  LOG      ✓ Compiled in 227ms
-[09:23:55.066] Server  LOG      ✓ Compiled in 853ms
-[09:23:57.397] Server  LOG      ✓ Compiled in 191ms
-[09:24:00.972] Server  LOG      ✓ Compiled in 285ms
-[09:25:53.247] Server  LOG      ✓ Compiled in 13.1s
-[09:25:53.828] Server  WARN     ⚠ Fast Refresh had to perform a full reload when ./components/auth-provider.tsx changed. Read more: https://nextjs.org/docs/messages/fast-refresh-reload
-[09:26:04.884] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
-[09:26:05.126] Browser ERROR   uncaughtError: Error: Hydration failed because the server rendered HTML didn't match the client. As a result this tree will be regenerated on the client. This can happen if a SSR-ed Client Component used:
-
-- A server/client branch `if (typeof window !== 'undefined')`.
-- Variable input such as `Date.now()` or `Math.random()` which changes each time it's called.
-- Date formatting in a user's locale which doesn't match the server.
-- External changing data without sending a snapshot of it along with the HTML.
-- Invalid HTML tag nesting.
-
-It can also happen if the client has a browser extension installed which messes with the HTML before React loaded.
-
-https://react.dev/link/hydration-mismatch
-
-  ...
-    <RenderFromTemplateContext>
-      <ScrollAndFocusHandler segmentPath={[...]}>
-        <InnerScrollAndFocusHandler segmentPath={[...]} focusAndScrollRef={{apply:false, ...}}>
-          <ErrorBoundary errorComponent={undefined} errorStyles={undefined} errorScripts={undefined}>
-            <LoadingBoundary name="profile/" loading={null}>
-              <HTTPAccessFallbackBoundary notFound={undefined} forbidden={undefined} unauthorized={undefined}>
-                <RedirectBoundary>
-                  <RedirectErrorBoundary router={{...}}>
-                    <InnerLayoutRouter url="/profile" tree={[...]} params={{}} cacheNode={{lazyData:null, ...}} ...>
-                      <SegmentViewNode type="page" pagePath="profile/pa...">
-                        <SegmentTrieNode>
-                        <ClientPageRoot Component={function ProfilePage} serverProvidedParams={{...}}>
-                          <ProfilePage params={Promise} searchParams={Promise}>
-                            <Header>
-+                             <header className="sticky top-0 z-50 bg-white border-b border-border shadow-sm">
--                             <Suspense>
-                            ...
-                      ...
-                    ...
-          ...
-
-[09:27:21.529] Server  LOG      ✓ Compiled in 3.4s
-[09:29:48.692] Server  LOG      ✓ Compiled in 6.8s
-[09:29:55.677] Browser ERROR   uncaughtError: ReferenceError: socialIcons is not defined
-[09:29:55.681] Browser ERROR   Failed to fetch RSC payload for http://localhost:3000/profile. Falling back to browser navigation. {}
-[09:29:58.767] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
-[09:29:59.028] Browser ERROR   uncaughtError: Error: Hydration failed because the server rendered HTML didn't match the client. As a result this tree will be regenerated on the client. This can happen if a SSR-ed Client Component used:
-
-- A server/client branch `if (typeof window !== 'undefined')`.
-- Variable input such as `Date.now()` or `Math.random()` which changes each time it's called.
-- Date formatting in a user's locale which doesn't match the server.
-- External changing data without sending a snapshot of it along with the HTML.
-- Invalid HTML tag nesting.
-
-It can also happen if the client has a browser extension installed which messes with the HTML before React loaded.
-
-https://react.dev/link/hydration-mismatch
-
-  ...
-    <RenderFromTemplateContext>
-      <ScrollAndFocusHandler segmentPath={[...]}>
-        <InnerScrollAndFocusHandler segmentPath={[...]} focusAndScrollRef={{apply:false, ...}}>
-          <ErrorBoundary errorComponent={undefined} errorStyles={undefined} errorScripts={undefined}>
-            <LoadingBoundary name="profile/" loading={null}>
-              <HTTPAccessFallbackBoundary notFound={undefined} forbidden={undefined} unauthorized={undefined}>
-                <RedirectBoundary>
-                  <RedirectErrorBoundary router={{...}}>
-                    <InnerLayoutRouter url="/profile" tree={[...]} params={{}} cacheNode={{lazyData:null, ...}} ...>
-                      <SegmentViewNode type="page" pagePath="profile/pa...">
-                        <SegmentTrieNode>
-                        <ClientPageRoot Component={function ProfilePage} serverProvidedParams={{...}}>
-                          <ProfilePage params={Promise} searchParams={Promise}>
-                            <Header>
-+                             <header className="sticky top-0 z-50 bg-white border-b border-border shadow-sm">
--                             <Suspense>
-                            ...
-                      ...
-                    ...
-          ...
-
-[09:32:58.375] Server  LOG      ✓ Compiled in 3.7s
-[09:33:07.215] Server  LOG      ✓ Compiled in 286ms
-[09:33:17.948] Server  LOG      ✓ Compiled in 245ms
+    ./app/page.tsx [Client Component SSR]
+    ./app/page.tsx [Server Component]
+[00:06:20.669] Server  LOG      ✓ Compiled in 3.1s
+[00:07:36.278] Server  LOG      ○ Compiling /search ...
+[00:08:24.151] Server  LOG      ○ Compiling /book/[id] ...
+[00:10:06.765] Server  LOG      ✓ Compiled in 3.1s
+[00:11:03.843] Server  LOG      ✓ Compiled in 1734ms
+[00:11:28.999] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:11:29.497] Browser WARN    Image with src "/book-cover-1.png" was detected as the Largest Contentful Paint (LCP). Please add the `loading="eager"` property if this image is above the fold.
+Read more: https://nextjs.org/docs/app/api-reference/components/image#loading
+[00:12:23.957] Server  LOG      ✓ Compiled in 3.9s
+[00:14:03.064] Server  LOG      ✓ Compiled in 1145ms
+[00:16:09.854] Server  LOG      ✓ Compiled in 8.6s
+[00:16:17.727] Server  LOG      ✓ Compiled in 3s
+[00:16:31.741] Server  LOG      ✓ Compiled in 1593ms
+[00:17:44.442] Server  LOG      ✓ Compiled in 2.9s
+[00:20:08.458] Server  LOG      ✓ Compiled in 2.7s
+[00:20:17.631] Server  LOG      ✓ Compiled in 3.2s
+[00:20:19.319] Browser ERROR   uncaughtError: TypeError: isFavorite is not a function
+[00:20:28.691] Server  LOG      ✓ Compiled in 5.7s
+[00:20:28.795] Server  WARN     ⚠ Fast Refresh had to perform a full reload due to a runtime error.
+[00:20:30.988] Browser ERROR   uncaughtError: TypeError: isFavorite is not a function
+[00:20:39.036] Server  WARN     ⚠ Fast Refresh had to perform a full reload due to a runtime error.
+[00:20:39.378] Browser ERROR   uncaughtError: TypeError: isFavorite is not a function
+[00:20:39.682] Server  LOG      ✓ Compiled in 45ms
+[00:20:42.022] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:20:42.210] Browser ERROR   uncaughtError: TypeError: isFavorite is not a function
+[00:21:01.151] Server  LOG      ✓ Compiled in 4.6s
+[00:21:01.491] Server  WARN     ⚠ Fast Refresh had to perform a full reload due to a runtime error.
+[00:21:12.152] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:21:12.800] Browser WARN    Image with src "/book-cover-1.png" was detected as the Largest Contentful Paint (LCP). Please add the `loading="eager"` property if this image is above the fold.
+Read more: https://nextjs.org/docs/app/api-reference/components/image#loading
+[00:21:42.680] Server  LOG      ✓ Compiled in 3.1s
+[00:22:01.177] Server  LOG      ✓ Compiled in 4s
+[00:27:19.412] Server  LOG      ✓ Compiled in 5.7s
+[00:27:30.811] Server  LOG      ✓ Compiled in 1092ms
+[00:27:35.939] Server  LOG      ✓ Compiled in 4.2s
+[00:27:42.622] Server  LOG      ✓ Compiled in 1079ms
+[00:27:59.855] Server  LOG      ✓ Compiled in 5.7s
+[00:28:07.795] Server  LOG      ✓ Compiled in 1701ms
+[00:28:23.870] Server  LOG      ✓ Compiled in 3.5s
+[00:28:47.441] Server  LOG      ✓ Compiled in 3.6s
+[00:29:12.491] Server  LOG      ✓ Compiled in 3.2s
+[00:29:41.208] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:29:43.519] Browser WARN    Image with src "/book-cover-7.png" was detected as the Largest Contentful Paint (LCP). Please add the `loading="eager"` property if this image is above the fold.
+Read more: https://nextjs.org/docs/app/api-reference/components/image#loading
+[00:30:58.517] Server  LOG      ○ Compiling /auth ...
+[00:31:27.272] Server  LOG      ○ Compiling /admin ...
+[00:31:55.133] Server  LOG      ○ Compiling /admin/books ...
+[00:34:27.577] Server  LOG      ○ Compiling /admin/orders ...
+[00:34:58.245] Server  LOG      ○ Compiling /admin/orders/[id] ...
+[00:37:04.363] Server  LOG      ✓ Compiled in 5s
+[00:37:14.930] Server  LOG      ✓ Compiled in 591ms
+[00:37:33.108] Server  LOG      ✓ Compiled in 630ms
+[00:37:42.463] Server  LOG      ✓ Compiled in 172ms
+[00:39:38.633] Server  LOG      ○ Compiling /admin/links ...

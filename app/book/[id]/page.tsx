@@ -6,8 +6,10 @@ import { Star, ShoppingCart, Heart, Share2, Check } from "lucide-react"
 import { Header } from "@/components/header"
 import { Button } from "@/components/ui/button"
 import { useCart } from "@/components/cart-provider"
+import { useAuth } from "@/components/auth-provider"
 import { getBook } from "@/lib/books-store"
 import type { Book } from "@/lib/books-store"
+import { isFavorite as checkIsFavorite, toggleFavorite } from "@/lib/favorites-store"
 
 const categoryLabels: Record<string, string> = {
   fiction: "داستان و رمان",
@@ -25,13 +27,19 @@ export default function BookPage({ params }: { params: Promise<{ id: string }> }
   const [isFavorite, setIsFavorite] = useState(false)
   const [isAdded, setIsAdded] = useState(false)
   const { addItem } = useCart()
+  const { user } = useAuth()
   const [isZoomOpen, setIsZoomOpen] = useState(false)
 
   useEffect(() => {
     const found = getBook(id)
     setBook(found)
     setLoading(false)
-  }, [id])
+    
+    // چک کردن وضعیت علاقه‌مندی
+    if (user && found) {
+      setIsFavorite(checkIsFavorite(user.id, found.id))
+    }
+  }, [id, user])
 
   useEffect(() => {
     function onKeyDown(e: KeyboardEvent) {
@@ -79,6 +87,23 @@ export default function BookPage({ params }: { params: Promise<{ id: string }> }
     setTimeout(() => setIsAdded(false), 3000)
   }
 
+  const handleToggleFavorite = () => {
+    if (!user) {
+      // اگر کاربر لاگین نکرده، به صفحه لاگین هدایت شود
+      window.location.href = "/auth"
+      return
+    }
+    
+    if (!book) return
+    
+    try {
+      const wasAdded = toggleFavorite(user.id, book.id)
+      setIsFavorite(wasAdded)
+    } catch (error) {
+      console.error("Error toggling favorite:", error)
+    }
+  }
+
   const discount = Math.round((1 - book.discountedPrice / book.price) * 100)
 
   return (
@@ -102,15 +127,15 @@ export default function BookPage({ params }: { params: Promise<{ id: string }> }
 
       {/* محتوای اصلی */}
       <div className="max-w-7xl mx-auto px-4 py-8">
-        <div className="grid md:grid-cols-2 gap-8">
+        <div className="grid md:grid-cols-2 gap-8 md:items-stretch">
           {/* تصویر کتاب */}
           <div className="flex flex-col gap-4">
             <div
-              className="relative bg-muted rounded-lg overflow-hidden h-56 md:h-80 cursor-zoom-in"
+              className="relative bg-muted rounded-lg overflow-hidden h-56 md:h-full md:min-h-[400px] md:flex-1 cursor-zoom-in"
               onClick={() => setIsZoomOpen(true)}
               title="برای بزرگ‌نمایی کلیک کنید"
             >
-              <Image src={book.image || "/placeholder.svg"} alt={book.title} fill className="object-cover" />
+              <Image src={book.image || "/placeholder.svg"} alt={book.title} fill className="object-cover md:object-contain" />
               {discount > 0 && (
                 <div className="absolute top-2 right-2 md:top-4 md:right-4 bg-accent text-accent-foreground px-3 py-1 md:px-4 md:py-2 rounded-lg font-bold text-sm md:text-lg">
                   {discount}% تخفیف
@@ -186,7 +211,7 @@ export default function BookPage({ params }: { params: Promise<{ id: string }> }
                   <ShoppingCart className="w-4 h-4 md:w-5 md:h-5 ms-2" />
                   {isAdded ? "اضافه شد ✓" : "اضافه به سبد"}
                 </Button>
-                <Button variant="outline" size="lg" onClick={() => setIsFavorite(!isFavorite)} className="px-4">
+                <Button variant="outline" size="lg" onClick={handleToggleFavorite} className="px-4">
                   <Heart className={`w-5 h-5 ${isFavorite ? "fill-accent text-accent" : "text-foreground"}`} />
                 </Button>
                 <Button variant="outline" size="lg" className="px-4 bg-transparent">

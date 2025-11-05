@@ -55,6 +55,13 @@ const defaultBooks: Book[] = [
     rating: 5,
     reviews: 412,
     category: "history",
+    description: "ما کیستیم یکی از مشهورترین آثار دکتر علی شریعتی است که به بررسی هویت ایرانی و مسائل اجتماعی و فرهنگی می‌پردازد. این کتاب با نگاهی عمیق و تحلیلی به تاریخ و فرهنگ ایران، سوالات بنیادینی درباره هویت و جایگاه ایرانیان در جهان معاصر مطرح می‌کند.",
+    publisher: "انتشارات چاپخش",
+    publishYear: 1350,
+    pages: 280,
+    language: "فارسی",
+    isbn: "978-964-6234-21-3",
+    features: ["تحلیل عمیق مسائل اجتماعی", "نوشتار روان و قابل فهم", "مطالعه برای همه سنین"],
     inStock: true,
     stockCount: 8,
   },
@@ -68,6 +75,13 @@ const defaultBooks: Book[] = [
     rating: 4,
     reviews: 178,
     category: "fiction",
+    description: "یک یادداشت معمولی یکی از آثار برجسته فئودور داستایفسکی است که به بررسی روانشناسی انسان و مسائل اخلاقی می‌پردازد. این رمان با روایتی عمیق و تأثیرگذار، خواننده را به تفکر درباره ماهیت انسان و انتخاب‌های اخلاقی دعوت می‌کند.",
+    publisher: "انتشارات نگاه",
+    publishYear: 1380,
+    pages: 450,
+    language: "فارسی",
+    isbn: "978-964-351-456-7",
+    features: ["ترجمه روان و دقیق", "نثر ادبی و زیبا", "مطالعه برای علاقه‌مندان به ادبیات کلاسیک"],
     inStock: true,
     stockCount: 3,
   },
@@ -81,6 +95,13 @@ const defaultBooks: Book[] = [
     rating: 5,
     reviews: 567,
     category: "self-help",
+    description: "عادت‌های موفق کتابی است که به شما کمک می‌کند تا با ایجاد عادت‌های مثبت و مؤثر، زندگی بهتری برای خود بسازید. این کتاب با ارائه راهکارهای عملی و علمی، شما را در مسیر رسیدن به اهداف و دستیابی به موفقیت راهنمایی می‌کند.",
+    publisher: "انتشارات نوین",
+    publishYear: 1400,
+    pages: 320,
+    language: "فارسی",
+    isbn: "978-964-1234-56-7",
+    features: ["راهکارهای عملی و کاربردی", "مبتنی بر تحقیقات علمی", "مناسب برای همه افراد"],
     inStock: true,
     stockCount: 12,
   },
@@ -94,6 +115,13 @@ const defaultBooks: Book[] = [
     rating: 3,
     reviews: 89,
     category: "science",
+    description: "علم دین یکی از آثار ارزشمند امام محمد غزالی است که به بررسی مسائل دینی و کلامی می‌پردازد. این کتاب با نگاهی عمیق و تحلیلی، مباحث مهم دینی و فلسفی را به شیوه‌ای ساده و قابل فهم برای خوانندگان ارائه می‌دهد.",
+    publisher: "انتشارات علمی و فرهنگی",
+    publishYear: 1370,
+    pages: 280,
+    language: "فارسی",
+    isbn: "978-964-445-123-4",
+    features: ["متن اصیل و معتبر", "توضیحات و حواشی کامل", "مناسب برای دانشجویان و محققان"],
     inStock: true,
     stockCount: 5,
   },
@@ -107,6 +135,13 @@ const defaultBooks: Book[] = [
     rating: 4,
     reviews: 234,
     category: "kids",
+    description: "شنل‌های شگفت‌انگیز داستانی جذاب و هیجان‌انگیز برای کودکان است که ماجراجویی‌های چند کودک را در دنیایی پر از ماجرا و شگفتی روایت می‌کند. این کتاب با تصاویر زیبا و داستانی آموزنده، کودکان را به خواندن و تخیل دعوت می‌کند.",
+    publisher: "انتشارات طلایی",
+    publishYear: 1395,
+    pages: 120,
+    language: "فارسی",
+    isbn: "978-964-5678-90-1",
+    features: ["تصاویر رنگی و جذاب", "داستان آموزنده و سرگرم‌کننده", "مناسب برای کودکان 7 تا 12 سال"],
     inStock: true,
     stockCount: 20,
   },
@@ -120,6 +155,13 @@ const defaultBooks: Book[] = [
     rating: 4,
     reviews: 145,
     category: "history",
+    description: "تاریخ ایران کتابی جامع و کامل است که به بررسی تاریخ این سرزمین کهن از دوران باستان تا دوران معاصر می‌پردازد. این اثر با نگاهی دقیق و مستند، رویدادهای مهم تاریخی، فرهنگ و تمدن ایران را به شیوه‌ای جذاب و قابل فهم ارائه می‌دهد.",
+    publisher: "انتشارات تاریخ ایران",
+    publishYear: 1390,
+    pages: 680,
+    language: "فارسی",
+    isbn: "978-964-7890-12-3",
+    features: ["تحلیل جامع و مستند", "تصاویر و نقشه‌های تاریخی", "مناسب برای دانشجویان و علاقه‌مندان به تاریخ"],
     inStock: true,
     stockCount: 7,
   },
@@ -133,6 +175,13 @@ const defaultBooks: Book[] = [
     rating: 5,
     reviews: 356,
     category: "fiction",
+    description: "سفر به ماه یکی از آثار مشهور ژول ورن، نویسنده فرانسوی است که ماجراجویی هیجان‌انگیز گروهی از دانشمندان را در سفری به کره ماه روایت می‌کند. این رمان علمی-تخیلی با خلاقیت و تخیل نویسنده، خواننده را به دنیایی پر از ماجرا و شگفتی می‌برد.",
+    publisher: "انتشارات علمی",
+    publishYear: 1385,
+    pages: 380,
+    language: "فارسی",
+    isbn: "978-964-3456-78-9",
+    features: ["رمان علمی-تخیلی جذاب", "ترجمه روان و دقیق", "مناسب برای نوجوانان و بزرگسالان"],
     inStock: true,
     stockCount: 10,
   },
@@ -142,7 +191,57 @@ export function getBooks(): Book[] {
   if (typeof window === "undefined") return defaultBooks
   try {
     const stored = window.localStorage.getItem(STORAGE_KEY)
-    if (stored) return JSON.parse(stored) as Book[]
+    if (stored) {
+      const books = JSON.parse(stored) as Book[]
+      // به‌روزرسانی کتاب‌هایی که description ندارند
+      let updated = false
+      const updatedBooks = books.map((book) => {
+        const defaultBook = defaultBooks.find((b) => b.id === book.id)
+        if (defaultBook) {
+          // فقط فیلدهای خالی را از defaultBook بگیر
+          const updates: Partial<Book> = {}
+          if (!book.description && defaultBook.description) {
+            updates.description = defaultBook.description
+            updated = true
+          }
+          if (!book.publisher && defaultBook.publisher) {
+            updates.publisher = defaultBook.publisher
+            updated = true
+          }
+          if (!book.publishYear && defaultBook.publishYear) {
+            updates.publishYear = defaultBook.publishYear
+            updated = true
+          }
+          if (!book.pages && defaultBook.pages) {
+            updates.pages = defaultBook.pages
+            updated = true
+          }
+          if (!book.language && defaultBook.language) {
+            updates.language = defaultBook.language
+            updated = true
+          }
+          if (!book.isbn && defaultBook.isbn) {
+            updates.isbn = defaultBook.isbn
+            updated = true
+          }
+          if (!book.features && defaultBook.features) {
+            updates.features = defaultBook.features
+            updated = true
+          }
+          if (Object.keys(updates).length > 0) {
+            return { ...book, ...updates }
+          }
+        }
+        return book
+      })
+      
+      if (updated) {
+        window.localStorage.setItem(STORAGE_KEY, JSON.stringify(updatedBooks))
+        return updatedBooks
+      }
+      
+      return books
+    }
     // اگر چیزی ذخیره نشده، پیش‌فرض رو ذخیره کن
     window.localStorage.setItem(STORAGE_KEY, JSON.stringify(defaultBooks))
     return defaultBooks

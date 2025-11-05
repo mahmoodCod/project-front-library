@@ -1,6 +1,6 @@
 "use client"
 
-import { useEffect, useState } from "react"
+import { useEffect, useState, useCallback } from "react"
 import { useRouter } from "next/navigation"
 import Link from "next/link"
 import { Button } from "@/components/ui/button"
@@ -8,29 +8,61 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 import { useAuth } from "@/components/auth-provider"
 import { getOrders } from "@/lib/orders-store"
+import { getUserFavorites } from "@/lib/favorites-store"
+import { getBook } from "@/lib/books-store"
+import { BookCard } from "@/components/book-card"
 import { Header } from "@/components/header"
-import { User, ShoppingBag, Calendar, Phone, LogOut, Package, DollarSign } from "lucide-react"
+import { User, ShoppingBag, Calendar, Phone, LogOut, Package, DollarSign, Heart } from "lucide-react"
 
 export default function ProfilePage() {
   const { user, logout } = useAuth()
   const router = useRouter()
   const [userOrders, setUserOrders] = useState<any[]>([])
+  const [favoriteBooks, setFavoriteBooks] = useState<any[]>([])
+
+  const loadUserData = useCallback(() => {
+    if (!user) return
+    
+    // دریافت سفارشات کاربر
+    const orders = getOrders().filter((order) => {
+      return (
+        order.customerPhone === user.phone ||
+        order.customerName === `${user.firstName} ${user.lastName}` ||
+        order.customerName.toLowerCase() === `${user.firstName} ${user.lastName}`.toLowerCase()
+      )
+    })
+    setUserOrders(orders)
+    
+    // دریافت کتاب‌های علاقه‌مندی
+    const favorites = getUserFavorites(user.id)
+    const books = favorites
+      .map((fav) => {
+        const book = getBook(fav.bookId)
+        return book ? { ...book, favoriteId: fav.id } : null
+      })
+      .filter((book) => book !== null)
+    setFavoriteBooks(books)
+  }, [user])
 
   useEffect(() => {
     if (!user) {
       router.push("/auth")
     } else {
-      // دریافت سفارشات کاربر
-      const orders = getOrders().filter((order) => {
-        return (
-          order.customerPhone === user.phone ||
-          order.customerName === `${user.firstName} ${user.lastName}` ||
-          order.customerName.toLowerCase() === `${user.firstName} ${user.lastName}`.toLowerCase()
-        )
-      })
-      setUserOrders(orders)
+      loadUserData()
     }
-  }, [user, router])
+  }, [user, router, loadUserData])
+
+  // به‌روزرسانی لیست علاقه‌مندی‌ها هنگام بازگشت به صفحه
+  useEffect(() => {
+    if (!user) return
+    
+    const handleFocus = () => {
+      loadUserData()
+    }
+    
+    window.addEventListener("focus", handleFocus)
+    return () => window.removeEventListener("focus", handleFocus)
+  }, [user, loadUserData])
 
   if (!user) {
     return null
@@ -123,9 +155,10 @@ export default function ProfilePage() {
 
         <div className="max-w-6xl mx-auto px-4 py-6 md:py-8">
           <Tabs defaultValue="info" className="w-full">
-            <TabsList className="grid w-full grid-cols-2 mb-4 md:mb-6 text-xs md:text-sm">
+            <TabsList className="grid w-full grid-cols-3 mb-4 md:mb-6 text-xs md:text-sm">
               <TabsTrigger value="info">اطلاعات شخصی</TabsTrigger>
               <TabsTrigger value="orders">سفارشات</TabsTrigger>
+              <TabsTrigger value="favorites">علاقه‌مندی‌ها</TabsTrigger>
             </TabsList>
 
             <TabsContent value="info">
@@ -266,6 +299,49 @@ export default function ProfilePage() {
                             </Button>
                           </div>
                         </div>
+                      ))}
+                    </div>
+                  )}
+                </CardContent>
+              </Card>
+            </TabsContent>
+
+            <TabsContent value="favorites">
+              <Card>
+                <CardHeader>
+                  <CardTitle className="flex items-center gap-2 text-base md:text-lg">
+                    <Heart className="w-4 h-4 md:w-5 md:h-5" />
+                    علاقه‌مندی‌های من
+                  </CardTitle>
+                </CardHeader>
+                <CardContent>
+                  {favoriteBooks.length === 0 ? (
+                    <div className="text-center py-8 md:py-12">
+                      <div className="w-12 h-12 md:w-16 md:h-16 bg-muted rounded-full flex items-center justify-center mx-auto mb-4">
+                        <Heart className="w-6 h-6 md:w-8 md:h-8 text-muted-foreground" />
+                      </div>
+                      <p className="text-muted-foreground mb-2 text-sm md:text-lg">شما هنوز کتابی به علاقه‌مندی‌ها اضافه نکرده‌اید</p>
+                      <p className="text-xs md:text-sm text-muted-foreground mb-6">برای افزودن کتاب به علاقه‌مندی‌ها، روی آیکون قلب در صفحه جزئیات کتاب کلیک کنید</p>
+                      <Button asChild size="sm" className="md:hidden">
+                        <Link href="/">بازگشت به فروشگاه</Link>
+                      </Button>
+                      <Button asChild size="lg" className="hidden md:inline-flex">
+                        <Link href="/">بازگشت به فروشگاه</Link>
+                      </Button>
+                    </div>
+                  ) : (
+                    <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+                      {favoriteBooks.map((book) => (
+                        <BookCard
+                          key={book.id}
+                          id={book.id}
+                          title={book.title}
+                          author={book.author}
+                          price={book.price}
+                          image={book.image}
+                          rating={book.rating}
+                          reviews={book.reviews}
+                        />
                       ))}
                     </div>
                   )}
